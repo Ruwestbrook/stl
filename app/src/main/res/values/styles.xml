@@ -1,0 +1,98 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--两边留出15dp空隙-->
+    <style name="normalLeftRightMargin">
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+    <!--水平居中-->
+    <style name="con_center_horizontal">
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+    <!--垂直居中-->
+    <style name="con_center_vertical">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+
+    <!--完成认证页面 提示-->
+
+    <style name="finish_tips_style" parent="normalLeftRightMargin">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/text_color_8f</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <!--按钮样式-->
+    <style name="button_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_button</item>
+    </style>
+
+    <!--借款界面文字样式-->
+    <style name="loan_text" parent="con_center_vertical">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/text_color_34</item>
+    </style>
+
+    <!--页面底部样式-->
+    <style name="footer_style">
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/footer_text</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/text_color_8a</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--右上角 使用说明 样式-->
+    <style name="right_explain" parent="white_12">
+        <item name="android:text">@string/explain_text</item>
+        <item name="android:drawableLeft">@drawable/icon_right_explain</item>
+        <item name="android:drawableStart">@drawable/icon_right_explain</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--白字  12sp-->
+    <style name="white_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--白字  14sp-->
+    <style name="white_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="text_34_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_color_34</item>
+    </style>
+
+    <style name="text_34_17">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/text_color_34</item>
+    </style>
+    <style name="text_80_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_color_80</item>
+    </style>
+
+</resources>
+

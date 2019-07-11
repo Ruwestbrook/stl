@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--认证完成-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/include_layout" />
+    <ImageView
+        android:layout_width="163dp"
+        android:id="@+id/img"
+        android:layout_marginTop="43dp"
+        android:src="@drawable/icon_finish_attest"
+        app:layout_constraintTop_toBottomOf="@id/include_layout"
+       style="@style/con_center_horizontal"
+        android:layout_height="156dp"
+        tools:ignore="ContentDescription" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/img"
+        android:text="@string/wait_finish_attest"
+        android:textColor="@color/text_color_34"
+        android:textSize="18sp"
+        android:layout_marginTop="36dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        style="@style/con_center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:textSize="10sp"
+        android:textColor="@color/text_color_8a"
+        android:text="@string/footer_text"
+        android:layout_height="wrap_content"
+        tools:ignore="SmallSp" />
+
+
+    <TextView
+        android:id="@+id/tip_two"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        android:layout_marginBottom="60dp"
+        android:text="@string/tips_office"
+       style="@style/finish_tips_style" />
+
+    <TextView
+        android:id="@+id/tip_one"
+        app:layout_constraintBottom_toTopOf="@id/tip_two"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tips_habit"
+        style="@style/finish_tips_style" />
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/tip_one"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tips_title"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:id="@+id/tips"
+        android:textColor="@color/text_color_8f"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/tips"
+        android:layout_marginBottom="18dp"
+        android:text="@string/back_text"
+        android:textColor="@color/white"
+        style="@style/button_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="44dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

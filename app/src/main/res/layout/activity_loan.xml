@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title"/>
+
+    <LinearLayout
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="66dp">
+        <TextView
+            android:text="@string/money_symbol"
+            android:textSize="23sp"
+            android:layout_gravity="center"
+            android:textColor="@color/text_color_55"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:background="@null"
+            android:textSize="35sp"
+            android:layout_gravity="center"
+            android:text="@string/normal_money"
+            android:textStyle="bold"
+            android:textColor="@color/app_base_color"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:textColor="@color/text_color_c5"
+        android:text="@string/fixed_amount"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/how_use"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/choose_text"
+            style="@style/loan_text"
+            android:drawableRight="@drawable/icon_go_choose"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/how_long"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/choose_text"
+            style="@style/loan_text"
+            android:drawableRight="@drawable/icon_go_choose"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/how_repay"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/choose_text"
+            style="@style/loan_text"
+            android:drawableRight="@drawable/icon_go_choose"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/repay_plan"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:layout_width="52dp"
+            android:layout_marginRight="6dp"
+            app:layout_constraintRight_toLeftOf="@id/repay_plan"
+            style="@style/con_center_vertical"
+            android:layout_height="16dp"
+            android:background="@color/app_base_color"
+            android:text="@string/first_repay"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:layout_marginEnd="6dp" />
+
+        <TextView
+            android:id="@+id/repay_plan"
+            android:layout_width="wrap_content"
+            android:text="@string/test_repay_info"
+            style="@style/loan_text"
+            android:textColor="@color/app_base_color"
+            android:drawableRight="@drawable/icon_go_choose"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/get_money_bank"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="20dp"
+            style="@style/con_center_vertical"
+            android:src="@drawable/test_icon_bank"
+            android:layout_marginRight="5dp"
+            app:layout_constraintRight_toLeftOf="@id/bank_name"
+            android:layout_height="20dp"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/bank_name"
+            android:layout_width="wrap_content"
+            android:text="@string/test_user_bank_card"
+            style="@style/loan_text"
+            android:drawableRight="@drawable/icon_go_choose"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        style="@style/normalLeftRightMargin"
+        android:background="@color/bg_dividing_line"
+        android:layout_height="1dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/lender"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/loan_text"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/test_company_name"
+            style="@style/loan_text"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="@string/fixed_tips"
+        android:textColor="@color/text_color_c5"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/button_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/next_step"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="37dp"
+        style="@style/footer_style"
+        />
+
+</LinearLayout>

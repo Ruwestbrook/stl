@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/bg_color_f8"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/credit_person_tips"
+        style="@style/text_34_12"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:layout_height="wrap_content" />
+
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_layout"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"            android:text="@string/credit_person"
+            style="@style/text_34_17"
+            android:id="@+id/text_card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+        
+        <ImageView
+            android:id="@+id/card_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_id_card"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/text_card"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+        
+        <ImageView
+            android:layout_width="51dp"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/card_img"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/icon_id_card_positive"
+            android:layout_height="34dp"
+            tools:ignore="MissingConstraints" />
+
+
+        <ImageView
+            android:layout_width="51dp"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/card_img"
+            android:layout_marginLeft="88dp"
+            android:src="@drawable/icon_id_card_back"
+            android:layout_height="34dp"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/face_layout"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"
+            android:text="@string/credit_face"
+            style="@style/text_34_17"
+            android:id="@+id/face_card"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+
+        <ImageView
+            android:id="@+id/face_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_user_face"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/face_card"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="51dp"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/face_img"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/icon_face_positive"
+            android:layout_height="34dp"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="30dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/name_layout"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"            android:text="@string/credit_name"
+            style="@style/text_34_17"
+            android:id="@+id/name_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+
+        <ImageView
+            android:id="@+id/name_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_user_name"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/name_text"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_color_80"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/name_img"
+            android:layout_marginLeft="30dp"
+            android:text="@string/credit_auto"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="30dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/id_layout"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"
+            android:text="@string/credit_id"
+            style="@style/text_34_17"
+            android:id="@+id/id_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+
+        <ImageView
+            android:id="@+id/id_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_user_id"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/id_text"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_color_80"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/id_img"
+            android:layout_marginLeft="30dp"
+            android:text="@string/credit_auto"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="30dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/education_layout"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"
+            android:text="@string/credit_education"
+            style="@style/text_34_17"
+            android:id="@+id/education_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+
+        <ImageView
+            android:id="@+id/education_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_user_education"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/education_text"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_color_80"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/education_img"
+            android:layout_marginLeft="30dp"
+            android:text="@string/select_credit_education"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="30dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            style="@style/con_center_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icon_go_choose"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/address_layout"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_credit_item"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:layout_height="84dp">
+
+        <TextView
+            android:layout_width="70dp"
+            android:includeFontPadding="false"
+            android:text="@string/credit_address"
+            style="@style/text_34_17"
+            android:id="@+id/address_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="23dp"
+            app:layout_constraintTop_toBottomOf="@id/address_text"
+            android:text="@string/credit_details_address"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/address_img"
+            android:layout_width="23dp"
+            android:src="@drawable/icon_user_location"
+            android:layout_marginLeft="21dp"
+            app:layout_constraintLeft_toRightOf="@id/address_text"
+            style="@style/con_center_vertical"
+            android:layout_height="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_color_80"
+            style="@style/con_center_vertical"
+            app:layout_constraintLeft_toRightOf="@id/address_img"
+            android:layout_marginLeft="30dp"
+            android:text="@string/select_credit_address"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints"
+            android:layout_marginStart="30dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            style="@style/con_center_vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/icon_go_choose"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/next_step"
+        style="@style/button_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_height="44dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        style="@style/footer_style"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

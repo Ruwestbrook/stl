@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="15dp"
+    android:maxHeight="204dp"
+    android:layout_height="wrap_content">
+    
+    <ImageView
+        android:layout_width="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/icon_repay_plan"
+        android:layout_height="12dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:includeFontPadding="false"
+        android:text="7月3号"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/text_color_34"
+        android:layout_marginLeft="22dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="22dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="23dp"
+        android:background="@color/bg_color_f8"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:text="第二期"
+        android:id="@+id/term_name"
+        android:includeFontPadding="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        style="@style/text_34_17"
+        android:layout_height="17dp" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:rotation="180"
+        android:src="@drawable/icon_look_more"
+        app:layout_constraintTop_toTopOf="@id/term_name"
+        app:layout_constraintBottom_toBottomOf="@id/term_name"
+        app:layout_constraintLeft_toRightOf="@id/term_name"
+        android:layout_marginLeft="11dp"
+        android:layout_height="12dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:text="￥166.66"
+        android:includeFontPadding="false"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/text_34_17"
+        android:layout_height="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="92dp"
+        android:id="@+id/view_line"
+        android:background="@color/bg_color_f8"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="1dp"/>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+
+        <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/text_34_12"
+            android:id="@+id/text_title_one"
+            android:includeFontPadding="false"
+            android:layout_width="wrap_content"
+            android:text="@string/repay_normal_money_text"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/text_34_12"
+            android:layout_marginTop="7dp"
+            android:id="@+id/text_title_two"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/text_title_one"
+            android:text="@string/repay_normal_rate_text"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/text_34_12"
+            android:id="@+id/text_title_three"
+            android:layout_marginTop="7dp"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/text_title_two"
+            android:text="@string/repay_normal_term_text"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/text_34_12"
+            android:layout_marginTop="7dp"
+            android:id="@+id/text_title_four"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/text_title_three"
+            android:text="@string/repay_normal_overdue_text"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:includeFontPadding="false"
+            android:text="@string/normal_money"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/text_title_one"
+            app:layout_constraintLeft_toRightOf="@id/text_title_one"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:includeFontPadding="false"
+            android:text="@string/normal_money"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/text_title_two"
+            app:layout_constraintLeft_toRightOf="@id/text_title_two"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:includeFontPadding="false"
+            android:text="@string/normal_money"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/text_title_three"
+            app:layout_constraintLeft_toRightOf="@id/text_title_three"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:includeFontPadding="false"
+            android:text="@string/normal_money"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/text_title_four"
+            app:layout_constraintLeft_toRightOf="@id/text_title_four"/>
+
+
+
+
+        <LinearLayout
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/con_center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+            <ImageView
+                android:rotation="180"
+                android:layout_width="12dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_look_more"
+                android:layout_height="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/retract"
+                android:layout_marginLeft="4dp"
+                style="@style/text_34_12"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>

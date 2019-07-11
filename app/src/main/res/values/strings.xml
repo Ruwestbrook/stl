@@ -1,0 +1,142 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">有需有贷</string>
+
+    <string name="wait_finish_attest" tools:ignore="TypographyEllipsis">
+        您的申请已受理，通过后会第一时间通知您,请耐心等候...</string>
+
+    <string name="footer_text">渗透力金融旗下信贷平台</string>
+    <string name="tips_title">温馨提示</string>
+    <string name="tips_habit">·良好的信用习惯,避免逾期出现，可提高额度申请成功率</string>
+    <string name="tips_office">·不要轻易相信非官方客服说法</string>
+    <string name="back_text">返回</string>
+    <string name="money_symbol">￥</string>
+    <string name="next_step">下一步</string>
+    <string name="explain_text">使用说明</string>
+
+    <!--首页-->
+    <string name="advantage_1">利率透明</string>
+    <string name="advantage_2">高效审批</string>
+    <string name="advantage_3">高效审批</string>
+
+    <string name="user_max_quota">您当前最高可借额度(元)</string>
+    <string name="max_quota">最高可借额度(元)</string>
+    <string name="should_repay">本期应还(元)</string>
+
+    <string name="day_rate_low">日费用最底</string>
+
+    <string name="normal_term">期限(月)</string>
+    <string name="repay_day">还款日</string>
+
+    <string name="loan_money">我要借钱</string>
+    <string name="repay_now">立即还款</string>
+
+    <string name="app_use_explain">有需有贷使用说明</string>
+    <string name="app_use_explain_tips">简单明了，了解平台使用规规则</string>
+    <string name="loan_tips">借款指南</string>
+    <string name="replay_tips">还款指南</string>
+    <string name="quota_tips">还款指南</string>
+    <string name="tips_more">点击查看详情</string>
+
+    <string name="audit_failed">审核未通过</string>
+    <string name="audit_success">审核通过</string>
+
+    <string name="version_unknown">未知版本</string>
+
+    <!--借款界面-->
+
+    <string name="fixed_amount">您当前为固定额度，不可输入金额</string>
+    <string name="fixed_tips">注:固定额度借款只可调整金额用处和银行卡选择</string>
+    <string name="not_fixed_amount">您可以自行输入金额，必须为100的倍数</string>
+
+    <string name="choose_text">请选择</string>
+    <string name="how_use">怎么用</string>
+    <string name="how_long">借多久</string>
+    <string name="how_repay">怎么还</string>
+    <string name="repay_plan">还款计划</string>
+    <string name="get_money_bank">收款银行</string>
+    <string name="lender">出借方</string>
+    <string name="equal_installments">等额本息</string>
+    <string name="first_repay">首期应还</string>
+
+
+    <!--设置联系人-->
+
+    <string name="contact_title">完善您的申请信息</string>
+    <string name="contact_input_text">请输入紧急联系人</string>
+    <string name="input_text_hint">请输入姓名</string>
+    <string name="contact_input_relation">与本人关系</string>
+    <string name="input_relation_hint">例如 父亲/母亲/妻子</string>
+    <string name="phone_number_text">手机号码</string>
+    <string name="contact_permission_hint">此项需允许获取通讯录</string>
+
+
+
+
+    <!--登录注册-->
+    <string name="login_title">登录/注册</string>
+
+
+
+    <!--实名认证-->
+    <string name="credit_person_tips">身份认证信息保存后无法修改，请务必保证正确</string>
+    <string name="credit_person">身份认证</string>
+    <string name="credit_face">人脸识别</string>
+    <string name="credit_name">姓名    </string>
+    <string name="credit_id">身份证  </string>
+    <string name="credit_auto">通过身份证自动识别</string>
+    <string name="credit_education">学历</string>
+    <string name="select_credit_education">请选择学历</string>
+    <string name="credit_address">现居地址</string>
+    <string name="credit_details_address">请输入详细地址</string>
+    <string name="select_credit_address">请选择现居地址</string>
+
+    <!--我的-->
+
+    <string name="login">登录</string>
+    <string name="mine">我的</string>
+    <string name="logo_now">立即登录</string>
+    <string name="login_advantage">领取贷款额度吧</string>
+    <string name="mine_record_text">借款记录</string>
+    <string name="mine_details_text">完善资料</string>
+    <string name="mine_bank_text">银行卡</string>
+    <string name="mine_help_text">客服中心</string>
+    <string name="mine_setting">设置</string>
+
+    <!--攻略-->
+    <string name="strategy">攻略</string>
+    <string name="hot_information">热点资讯</string>
+
+
+    <!--还款-->
+    <string name="repay_no_record">您现在没有要还的款项哦~</string>
+    <string name="apply_now">马上申请</string>
+    <string name="repay_tips">我们会在还款日当天12:00开始自动扣款，请确保余额、储蓄卡余额宝账户资金充足。</string>
+    <string name="repay_plan_title">还款计划</string>
+    <string name="repay_type">支持多种还款方式，方便快捷</string>
+    <string name="repay_active">银行卡转账</string>
+    <string name="repay_self_motion">自动还款</string>
+    <string name="repay_zfb">支付宝转账</string>
+    <string name="repay_quick1">快捷还款</string>
+    <string name="repay_quick2">转账还款</string>
+    <string name="repay_look_protocol">查看协议</string>
+    <string name="repay_normal_money_text">本金:</string>
+    <string name="repay_normal_rate_text">利息:</string>
+    <string name="repay_normal_term_text">分期手续费:</string>
+    <string name="repay_normal_overdue_text">逾期费用:</string>
+    <string name="retract">收起</string>
+    <string name="open">展开</string>
+
+
+
+
+    <!--测试数据-->
+
+    <string name="test_company_name">杭州渗透力网络科技有限公司</string>
+    <string name="test_user_bank_card">建设银行储蓄卡(0001)</string>
+    <string name="test_repay_info">￥666.02(7月6日)</string>
+    <string name="normal_money">5000</string>
+    <string name="test_normal_money">100000</string>
+    <string name="test_day_rate">0.27元</string>
+    <string name="test_term_data">3/6/9/12/24</string>
+    <string name="test_user_name">157****1829</string>
+</resources>
