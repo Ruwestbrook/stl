@@ -4,6 +4,8 @@
     <string name="wait_finish_attest" tools:ignore="TypographyEllipsis">
         您的申请已受理，通过后会第一时间通知您,请耐心等候...</string>
 
+    <string name="permission_message_permission_failed">我们需要的一些权限被您拒绝或者系统发生错误申请失败，请您到设置页面手动授权，否则功能无法正常使用！</string>
+
     <string name="footer_text">渗透力金融旗下信贷平台</string>
     <string name="tips_title">温馨提示</string>
     <string name="tips_habit">·良好的信用习惯,避免逾期出现，可提高额度申请成功率</string>
@@ -57,6 +59,11 @@
     <string name="lender">出借方</string>
     <string name="equal_installments">等额本息</string>
     <string name="first_repay">首期应还</string>
+    <string name="loan_less_symbol">-</string>
+    <string name="credit_report">信用报告</string>
+    <string name="user_credit_report">个人信用报告</string>
+    <string name="report_explain">(借款到账后有场景消费代理公司立即代扣)</string>
+    <string name="user_report_explain">(购买个人信用报告后，根据短信提示登入指定 后台，查收个人专属信用报告)</string>
 
 
     <!--设置联系人-->
@@ -69,13 +76,23 @@
     <string name="phone_number_text">手机号码</string>
     <string name="contact_permission_hint">此项需允许获取通讯录</string>
 
-
+    <string name="pay_test">收入信息</string>
+    <string name="now_profession">目前职业</string>
 
 
     <!--登录注册-->
     <string name="login_title">登录/注册</string>
+    <string name="phone_hint">请输入正确手机号</string>
+    <string name="code_hint">请输入验证码</string>
+    <string name="login_protocol_first">点击下一步代表已经阅读并同意</string>
+    <string name="login_protocol_second">以及</string>
+    <string name="login_protocol_details_first">《用户协议》</string>
+    <string name="login_protocol_details_second">《保护隐私声明》</string>
 
 
+    <!--添加银行卡-->
+    <string name="add_your_card">添加你的银行卡</string>
+    <string name="get_your_quota">快速领取您的申请额度</string>
 
     <!--实名认证-->
     <string name="credit_person_tips">身份认证信息保存后无法修改，请务必保证正确</string>
@@ -89,6 +106,7 @@
     <string name="credit_address">现居地址</string>
     <string name="credit_details_address">请输入详细地址</string>
     <string name="select_credit_address">请选择现居地址</string>
+
 
     <!--我的-->
 
@@ -126,7 +144,63 @@
     <string name="retract">收起</string>
     <string name="open">展开</string>
 
+    <string name="loan_next_text">点击下一步即表示您已经同意</string>
+    <string name="loan_protocol_lists">借款等相关协议</string>
+    <string name="every_stage_return">每期还</string>
 
+
+
+
+
+    <!-- 设置 -->
+    <string name="mine_settings_title">设置</string>
+    <string name="mine_settings_about">关于我们</string>
+    <string name="mine_settings_about_version">当前版本</string>
+    <string name="mine_settings_idea">意见反馈</string>
+    <string name="mine_settings_idea_tip1">请输入您的反馈意见,我们会为您不断进步。</string>
+    <string name="mine_settings_idea_tip2">160/160</string>
+    <string name="mine_settings_idea_tip3">客服工作时间</string>
+    <string name="mine_settings_idea_tip4">9:00 ~ 18:00</string>
+    <string name="mine_settings_idea_submit">提交</string>
+    <string name="mine_settings_update_pwd">修改登录密码</string>
+    <string name="mine_settings_update_pwd_forget">忘记</string>
+    <string name="mine_settings_set_pwd">设置交易密码</string>
+    <string name="mine_settings_update_paypaw">修改交易密码</string>
+    <string name="mine_settings_exit">退出登录</string>
+
+    <!-- 修改密码 -->
+    <string name="settings_pwd_title">修改登录密码</string>
+    <string name="seetings_pwd_tips">两次输入的密码不一致</string>
+    <string name="seetings_pwd_reset">重新设置</string>
+    <string name="seetings_pwd_again">再试一次</string>
+    <string name="settings_pwd_forget">忘记</string>
+    <string name="settings_pwd_pwd">原密码</string>
+    <string name="settings_pwd_pwd_hint">请输入原密码</string>
+    <string name="settings_pwd_new_pwd">新密码</string>
+    <string name="settings_pwd_new_pwd_hint">请输入新密码</string>
+    <string name="settings_pwd_confirm_pwd">确认新密码</string>
+    <string name="settings_pwd_confirm_pwd_hint">请确认新密码</string>
+    <string name="settings_pwd_desc">登录密码为6&#8211;16位字符，包括数字和字母</string>
+    <string name="settings_pwd_sub">完成</string>
+    <string name="settints_pay_update_new_title">新交易密码</string>
+    <string name="settints_pay_update_old_pwd_error">原交易密码错误</string>
+    <string name="settints_pay_update_new_tips">请输入6位交易密码</string>
+    <string name="settints_pay_update_confirm_title">确认交易密码</string>
+    <string name="settints_pay_update_confirm_tips">请确认6位交易密码</string>
+    <string name="settints_pay_success">设置交易密码成功!</string>
+    <string name="settints_pay_set_tips">请输入6位交易密码</string>
+
+    <string name="settints_pay_update_tips">请输入您的原交易密码</string>
+    <string name="settings_forgot_pay_title">找回交易密码</string>
+    <string name="settings_forgot_pay_phone">手机号码</string>
+    <string name="settings_forgot_pay_name">真实姓名</string>
+    <string name="settings_forgot_pay_no">身份证号</string>
+    <string name="settings_forgot_pay_code">短信验证码</string>
+    <string name="settings_forgot_pay_phone_tip">请填写手机号码</string>
+    <string name="settings_forgot_pay_name_tip">请填写真实姓名</string>
+    <string name="settings_forgot_pay_name_not_chinese">真实姓名仅为中文</string>
+    <string name="settings_forgot_pay_no_tip">请填写身份证号</string>
+    <string name="settings_forgot_pay_code_tip">请输入短信验证码</string>
 
 
     <!--测试数据-->
@@ -139,4 +213,13 @@
     <string name="test_day_rate">0.27元</string>
     <string name="test_term_data">3/6/9/12/24</string>
     <string name="test_user_name">157****1829</string>
+    <string name="test_bank_name">建设银行</string>
+    <string name="test_bank_type">储蓄卡</string>
+    <string name="test_bank_id">6900&#160;&#160; 1234&#160;&#160; 5678&#160;&#160; 0305</string>
+    <string name="test_profession">公司职员</string>
+    <string name="test_pay">3-5k</string>
+    <string name="test_less_money">-￥&#160;6000</string>
+    <string name="test_stage_term">3期(90天)</string>
+    <string name="test_return_money">￥166.66</string>
+
 </resources>

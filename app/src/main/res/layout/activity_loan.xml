@@ -10,6 +10,7 @@
     <include layout="@layout/title"/>
 
     <LinearLayout
+        android:visibility="gone"
         style="@style/normalLeftRightMargin"
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -49,6 +50,87 @@
         android:textSize="12sp"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingRight="15dp"
+        android:visibility="gone"
+        android:paddingLeft="15dp"
+        android:paddingBottom="8dp"
+        android:layout_height="158dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/credit_report"
+            style="@style/text_34_17"
+            android:id="@+id/text_one"
+            android:layout_marginTop="31dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/text_one"
+            android:layout_marginTop="9dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/report_explain"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            android:maxWidth="245dp"
+            android:maxLines="2"
+            android:id="@+id/text_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_two"
+            android:layout_marginTop="10dp"
+            android:text="@string/user_credit_report"
+            style="@style/text_34_17"
+            android:id="@+id/text_three"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_three"
+            android:layout_marginTop="9dp"
+            android:text="@string/user_report_explain"
+            android:maxWidth="260dp"
+            android:maxLines="2"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/test_less_money"
+                style="@style/text_34_17"
+                android:gravity="center"
+                android:drawableRight="@drawable/icon_go_choose"
+                android:drawablePadding="9dp"
+                android:includeFontPadding="false"
+                android:layout_marginTop="31dp"
+
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="17dp"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -169,7 +251,8 @@
             android:textSize="10sp"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:layout_marginEnd="6dp" />
+            android:layout_marginEnd="6dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/repay_plan"
@@ -265,6 +348,28 @@
         android:layout_marginTop="40dp"
         android:text="@string/next_step"
         android:layout_height="40dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/text_color_c5"
+            android:text="@string/loan_next_text"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/app_base_color"
+            android:textSize="12sp"
+            android:text="@string/loan_protocol_lists"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"

@@ -19,7 +19,11 @@ open class BaseFragment:Fragment(){
  activity基类
  */
 @SuppressLint("Registered")
-class BaseActivity: AppCompatActivity(){
+open class BaseActivity: AppCompatActivity(){
+
+    fun setTitle(title:String){
+
+    }
 
 }
 

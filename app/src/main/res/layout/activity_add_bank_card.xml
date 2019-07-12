@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/bg_color_f8"
     android:layout_height="match_parent">
 
-    <include layout="@layout/title"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:minHeight="400dp"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/title"
+            android:id="@+id/title_layout"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:id="@+id/no_card_layout"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_no_bank_card"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="120dp" />
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:text="@string/add_your_card"
+                android:gravity="center"
+                style="@style/text_15_a3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="@string/get_your_quota"
+                android:gravity="center"
+                style="@style/text_15_a3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingBottom="20dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            style="@style/text_34_12"
+            android:text="@string/credit_person_tips"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/card_list"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            style="@style/con_center_horizontal"
+            android:layout_marginTop="41dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_add_bank_card"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            style="@style/footer_style"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="21dp" />
+
+    </LinearLayout>
+</ScrollView>

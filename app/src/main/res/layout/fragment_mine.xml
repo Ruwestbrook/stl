@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="control"
+            type="com.loan.stl.module.home.viewControl.MineControl" />
 
     </data>
 
@@ -127,7 +130,7 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -173,7 +176,7 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -218,7 +221,7 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -263,7 +266,7 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -308,12 +311,13 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:background="@color/white"
+                android:onClick="@{control::openSetting}"
                 style="@style/normalLeftRightMargin"
                 android:layout_height="50dp">
 
@@ -353,7 +357,7 @@
                     android:background="@color/bg_color_f8"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_height="1dp" />
+                    android:layout_height="2dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -9,6 +9,7 @@
 
     <color name="bg_dividing_line">#F5F5F5</color>
 
+    <!--字体颜色--><color name="btn_disable">#cbcbcb</color>
 
     <!--字体颜色-->
     <color name="text_color_34">#343434</color>
@@ -21,6 +22,9 @@
     <color name="text_color_9a">#9A9DAC</color>
     <color name="text_color_99">#999999</color>
     <color name="text_color_bd">#BDBFCE</color>
+    <color name="text_color_a3">#A3A2A7</color>
+    <color name="text_color_26">#262627</color>
+    <color name="text_color_83">#838B98</color>
 
 
 

@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+
 android {
 
 
@@ -26,6 +29,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        //aRouter配置
+        kapt {
+            generateStubs = true
+
+            arguments {
+                arg("moduleName", project.getName())
+            }
+            generateStubs = true
+        }
     }
     buildTypes {
         release {
@@ -50,5 +64,22 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(':custom')
+    //网络请求
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    //七牛云图片上传
+    implementation 'com.qiniu:qiniu-android-sdk:7.3.15'
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    //下拉刷新控件
+    implementation 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+
+    //aRouter使用
+    api 'com.alibaba:arouter-api:1.2.1'
+    kapt 'com.alibaba:arouter-compiler:1.1.2'
+    // DataBinding 注解处理依赖
+    kapt 'com.android.databinding:compiler:3.1.4'
+
 
 }

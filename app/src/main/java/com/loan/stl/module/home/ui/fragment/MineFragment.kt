@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.loan.stl.R
 import com.loan.stl.common.BaseFragment
+import com.loan.stl.databinding.FragmentHomeBindingImpl
 import com.loan.stl.databinding.FragmentMineBinding
+import com.loan.stl.module.home.viewControl.MineControl
 import kotlinx.android.synthetic.main.activity_credit_person.*
 
 /**
@@ -25,6 +27,7 @@ class MineFragment :BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mineBinding=DataBindingUtil.inflate(layoutInflater, R.layout.fragment_mine,container,false)
+        mineBinding.control= MineControl()
         return mineBinding.root
     }
 }

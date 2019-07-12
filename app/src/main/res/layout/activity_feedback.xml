@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ctrl"
+            type="com.loan.stl.module.user.viewControl.FeedBackControl" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        tools:context=".module.user.ui.activity.FeedbackActivity"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/title"/>
+
+        <RelativeLayout
+            android:id="@+id/ll"
+            android:layout_width="fill_parent"
+            android:layout_height="154dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/input_feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="130dp"
+                android:background="@null"
+                android:gravity="left|top"
+                android:hint="@string/mine_settings_idea_tip1"
+                android:lines="9"
+                android:maxLength="160"
+                android:padding="10dp"
+                android:text="@={ctrl.feedBackVM.idea}"
+                android:textColor="@color/text_color_34"
+                android:textColorHint="@color/text_color_9a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/input_feedback"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@{ctrl.feedBackVM.count}"
+                android:textColor="@color/text_color_9a"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <Button
+            android:onClick="@{ctrl::submit}"
+            android:enabled="@{ctrl.feedBackVM.enable}"
+            android:background="@drawable/primary_button_selector"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="@string/mine_settings_idea_submit"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp" />
+    </LinearLayout>
+</layout>

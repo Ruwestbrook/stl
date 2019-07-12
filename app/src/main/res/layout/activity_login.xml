@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--登录注册页面-->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
-    <View
-        app:layout_constraintTop_toTopOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/app_base_color"
-        android:layout_height="44dp"/>
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <View
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:background="@color/app_base_color"
+            android:layout_height="44dp" />
 
 
         <TextView
@@ -26,26 +32,153 @@
             android:id="@+id/title"
             android:layout_marginTop="13dp"
             android:layout_height="wrap_content" />
-    
-    <ImageView
-        android:layout_width="15dp"
-        android:src="@drawable/icon_login_return"
-        app:layout_constraintTop_toTopOf="@id/title"
-        app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="15dp"
-        tools:ignore="ContentDescription" />
-    
-    <ImageView
-        android:layout_width="90dp"
-        android:src="@drawable/icon_login_logo"
-        app:layout_constraintTop_toTopOf="@id/title"
-        android:layout_marginTop="55dp"
-        style="@style/con_center_horizontal"
-        android:layout_height="90dp" />
 
+        <ImageView
+            android:layout_width="15dp"
+            android:src="@drawable/icon_login_return"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="15dp"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:id="@+id/img"
+            android:src="@drawable/icon_login_logo"
+            app:layout_constraintTop_toTopOf="@id/title"
+            android:layout_marginTop="55dp"
+            style="@style/con_center_horizontal"
+            android:layout_height="90dp"
+            tools:ignore="MissingConstraints" />
+
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_marginLeft="22dp"
+            android:background="@null"
+            style="@style/text_34_17"
+            android:hint="@string/phone_hint"
+            android:id="@+id/phone_number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toBottomOf="@+id/img"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:layout_marginRight="22dp"
+            android:layout_width="40dp"
+            android:scaleType="center"
+            android:src="@drawable/icon_login_close"
+            app:layout_constraintTop_toTopOf="@id/phone_number"
+            app:layout_constraintBottom_toBottomOf="@id/phone_number"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="40dp" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            style="@style/normalLeftRightMargin"
+            android:background="@color/bg_color_f8"
+            app:layout_constraintTop_toBottomOf="@id/phone_number"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            style="@style/normalLeftRightMargin"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <EditText
+                android:layout_marginLeft="7dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                style="@style/text_34_17"
+                android:background="@null"
+                android:hint="@string/code_hint"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="再次获取(60s)"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:includeFontPadding="false"
+                android:textColor="@color/text_color_c5"
+                android:layout_marginLeft="20dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            style="@style/normalLeftRightMargin"
+            android:layout_marginTop="40dp"
+            android:background="@color/bg_color_f8"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            android:layout_height="1dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/view_line"
+            android:layout_marginTop="73dp"
+            style="@style/button_style"
+            android:text="@string/next_step"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="44dp" />
+
+
+        <TextView
+            android:id="@+id/footer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            style="@style/footer_style" />
+
+
+        <LinearLayout
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/footer"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:src="@drawable/icon_select_protocol"
+                android:background="@drawable/bg_login_protocol"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/login_protocol"
+                android:text="@string/login_protocol_first" />
+
+            <TextView
+                style="@style/login_protocol"
+                android:textColor="@color/app_base_color"
+                android:text="@string/login_protocol_details_first" />
+
+            <TextView
+                style="@style/login_protocol"
+                android:text="@string/login_protocol_second" />
+
+            <TextView
+                style="@style/login_protocol"
+                android:textColor="@color/app_base_color"
+                android:text="@string/login_protocol_details_second" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 

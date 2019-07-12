@@ -10,7 +10,7 @@ import com.loan.stl.module.home.ui.fragment.HomeFragment
 import com.loan.stl.module.home.ui.fragment.MineFragment
 import com.loan.stl.module.home.ui.fragment.RepayFragment
 import com.loan.stl.module.home.ui.fragment.StrategyFragment
-import com.loan.stl.utils.Logger
+import com.loan.stl.utils.LogUtils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var homeFragment: HomeFragment
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mNavigationBar=findViewById(R.id.tabs)
-        Logger.d("onCreate")
+        LogUtils.d("onCreate")
         initBar()
     }
 
