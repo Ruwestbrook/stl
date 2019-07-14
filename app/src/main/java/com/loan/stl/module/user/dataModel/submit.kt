@@ -9,10 +9,11 @@ time: 2019-07-12:17:43
 describe：
  */
 
-data class LoginSub( @SerializedName("loginName") val id: String?,
-                     @SerializedEncryption(type = "MD5")
+data class LoginSub(@SerializedName("loginName") var id: String?,
+                    @SerializedEncryption(type = "MD5")
                      @SerializedName("loginPwd")  var pwd: String?,
-                     @SerializedName("blackBox") var box: String?){
+                    @SerializedName("blackBox") var box: String?){
     constructor(id: String?,pwd: String?):this(id,pwd,null)
+    constructor():this(null,null,null)
 
 }

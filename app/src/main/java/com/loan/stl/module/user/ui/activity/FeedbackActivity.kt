@@ -22,6 +22,7 @@ class FeedbackActivity :BaseActivity() {
         super.onCreate(savedInstanceState)
         val activityFeedbackBinding=DataBindingUtil.
             setContentView<ActivityFeedbackBinding>(this,R.layout.activity_feedback)
+        setPageTitle("意见反馈")
         activityFeedbackBinding.ctrl= FeedBackControl()
     }
 

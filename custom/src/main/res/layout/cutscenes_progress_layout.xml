@@ -13,6 +13,7 @@
 
     <ImageView
         android:id="@+id/loadingImageView"
+        android:src="@drawable/lode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="ContentDescription" />
@@ -21,7 +22,7 @@
         android:id="@+id/loadingMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="@string/page_loading"
         android:textColor="@color/white"
         android:textSize="15sp" />

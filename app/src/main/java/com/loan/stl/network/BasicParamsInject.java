@@ -27,7 +27,8 @@ class BasicParamsInject {
 //                .addBodyParam(Constant.SIGNA, MDUtil.encode(MDUtil.TYPE.MD5,AppConfig.APP_KEY+"+"+AppConfig.APP_SECRET))
 //                .addBodyParam(Constant.APP_KEY,AppConfig.APP_KEY)
                 .addBodyParam(Constant.MOBILE_TYPE, BaseParams.MOBILE_TYPE)
-                .addBodyParam(Constant.VERSION_NUMBER, DeviceInfoUtils.getVersionName(LoanApplication.getContext()))
+//                .addBodyParam(Constant.VERSION_NUMBER,  "1.0.1-debug")
+                .addBodyParam(Constant.VERSION_NUMBER,DeviceInfoUtils.getVersionName(LoanApplication.getContext()))
                 .build();
         // 设置动态参数
         interceptor.setIBasicDynamic(new IBasicDynamic() {

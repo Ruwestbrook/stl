@@ -4,6 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.Gravity;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import android.widget.TextView;
  */
 public class CutscenesProgress extends Dialog {
     private static CutscenesProgress cutscenesProgress = null;
+    private RotateAnimation animation;
 
     public CutscenesProgress(Context context) {
         super(context);
@@ -37,9 +41,23 @@ public class CutscenesProgress extends Dialog {
         if (cutscenesProgress == null) {
             return;
         }
-        ImageView         imageView         = (ImageView) cutscenesProgress.findViewById(R.id.loadingImageView);
-        AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getBackground();
-        animationDrawable.start();
+        ImageView imageView = cutscenesProgress.findViewById(R.id.loadingImageView);
+        animation= (RotateAnimation) AnimationUtils.loadAnimation(getContext(),R.anim.animation);
+        imageView.setAnimation(animation);
+        animation.start();
+
+
+    }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if(animation!=null){
+            animation.cancel();
+            animation=null;
+        }
+
+
     }
 
     /**

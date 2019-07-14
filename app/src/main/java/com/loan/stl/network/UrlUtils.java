@@ -31,6 +31,7 @@ public class UrlUtils {
         commonParamsTreeMap = new TreeMap<>();
         //commonParamsTreeMap.put(Constant.APP_KEY, BaseParams.APP_KEY);
         commonParamsTreeMap.put(Constant.MOBILE_TYPE, BaseParams.MOBILE_TYPE);
+       // commonParamsTreeMap.put(Constant.VERSION_NUMBER, "1.0.1-debug");
         commonParamsTreeMap.put(Constant.VERSION_NUMBER, DeviceInfoUtils.getVersionName(LoanApplication.getContext()));
     }
 
@@ -136,7 +137,7 @@ public class UrlUtils {
                 sign = sb.toString();
             }
 
-            signa = MDUtil.encode(MDUtil.TYPE.MD5, AppConfig.APP_KEY + getToken() + sign).toUpperCase();
+            signa = MDUtil.encode(MDUtil.TYPE.MD5, AppConfig.APP_KEY+"+" +AppConfig.APP_SECRET+ getToken() + sign).toUpperCase();
         } catch (Exception e) {
             e.printStackTrace();
         }

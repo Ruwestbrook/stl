@@ -149,8 +149,14 @@ public class BasicParamsInterceptor implements Interceptor {
                 temp = new HashMap<>();
                 String[] s = params[i].split("=");
                 if (s.length > 1) {
+                    if(s[0].contains("serialVersionUID")){
+                        continue;
+                    }
                     temp.put(s[0], s[1]);
                 } else {
+                    if(s[0].contains("serialVersionUID")){
+                        continue;
+                    }
                     temp.put(s[0], "");
                 }
                 signMap.putAll(temp);

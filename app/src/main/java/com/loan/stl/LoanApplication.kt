@@ -7,7 +7,10 @@ import android.content.Context
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
 import com.loan.stl.common.ActivityManage
+import com.loan.stl.common.AppConfig
+import com.loan.stl.common.BaseParams
 import com.loan.stl.utils.LogUtils
+import com.loan.stl.utils.SPreferences.SharedInfo
 
 /**
 author: russell
@@ -26,13 +29,25 @@ class LoanApplication :Application() {
     }
     override fun onCreate() {
         super.onCreate()
-        ARouter.openDebug()
+
         context=this.applicationContext
 
-        ARouter.init(this)
+
         closeAndroidPDialog()
         registerActivity()
-        LogUtils.d("ARouter.init")
+        basicInit()
+    }
+
+    private fun basicInit() {
+
+        SharedInfo.init(BaseParams.SP_NAME)
+
+        if(AppConfig.IS_DEBUG){
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
+        ARouter.init(this)
+
     }
 
     private var count = 0

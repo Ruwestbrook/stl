@@ -30,24 +30,7 @@ class AppConfig {
 
          /** app_secret  */
          const val APP_SECRET = "LdB4riBgg2TDAiEAsSomOO1v8mK2VWhEQh6mttgN"
-         /** friday 数据行为分析key  */
-         const val BEHAVIOR_GATHER_KEY = ""
-         /** 微信分享Key  */
-         const val WX_APP_ID = "wxc863e37b103d5555"
-         const val WX_APP_SECRET = "9b954e440abd00f3a048cfa3236e076b"
-         /** 小视账号密码  */
-         //    public static final String  REGARD_ACCOUNT = "";
-         //    public static final String  REGARD_PASSWORD = "";
-         const val REGARD_ACCOUNT = ""
-         const val REGARD_PASSWORD = ""
-         /** QQKey  */
-         const val QQ_ID = "1106507314"
-         const val QQ_APP_KEY = "QNy1Sb2xPHwszOlT"
-         /** 新浪分享Key  */
-         const val SINA_APP_ID = ""
-         const val SINA_APP_SECRET = ""
-         // 白骑士标识
-         const val BQSPARTNERID = ""
+
          /** 引导页数量  */
          const val GUIDE_COUNT = 3
          /**

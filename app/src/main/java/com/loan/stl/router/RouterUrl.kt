@@ -17,6 +17,9 @@ class RouterUrl{
         /*意见反馈*/
        const val FEEDBACK_PAGE="/activity/feedback"
 
+        /*打开网页*/
+       const val WEBVIWE_FACE="/activity/webview"
+
     }
 
 }

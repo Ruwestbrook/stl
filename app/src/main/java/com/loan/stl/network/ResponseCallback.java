@@ -1,7 +1,9 @@
 package com.loan.stl.network;
 
+import android.view.View;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.loan.stl.network.exception.ApiException;
+import com.loan.stl.utils.LogUtils;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,6 +18,7 @@ import java.io.IOException;
  */
 public abstract class ResponseCallback<T> implements Callback<T> {
     private SwipeToLoadLayout swipeLayout;
+    private View view;
     private Boolean flag=false;
     public ResponseCallback() {
     }
@@ -24,6 +27,11 @@ public abstract class ResponseCallback<T> implements Callback<T> {
         this.swipeLayout = swipeLayout;
         this.flag = flag;
     }
+
+    public ResponseCallback(View view) {
+        this.view = view;
+    }
+
 
     public ResponseCallback(SwipeToLoadLayout swipeLayout) {
         this.swipeLayout = swipeLayout;
@@ -40,7 +48,7 @@ public abstract class ResponseCallback<T> implements Callback<T> {
     }
 
     public void onFailed(Call<T> call, Response<T> response) {
-        if(response==null || response.message()==null || response.message().equals("")){
+        if(response == null || response.message().equals("")){
             return;
         }
 //        if (response.code() > 400) {
@@ -50,6 +58,7 @@ public abstract class ResponseCallback<T> implements Callback<T> {
 
     @Override
     public void onFailure(@NotNull Call<T> call, @NotNull Throwable t) {
+        LogUtils.Companion.d(t.toString());
         hasResponse();
         if (t instanceof ApiException && (!flag)) {
 
@@ -64,12 +73,15 @@ public abstract class ResponseCallback<T> implements Callback<T> {
     }
 
     private void hasResponse(){
-      //  LoadingDialog.dismissDialog();
+        NetworkUtil.dismissCutscenes();
         if (swipeLayout != null && swipeLayout.isRefreshing()) {
             swipeLayout.setRefreshing(false);
         }
         if (swipeLayout != null && swipeLayout.isLoadingMore()) {
             swipeLayout.setLoadingMore(false);
+        }
+        if(view!=null && !view.isEnabled()){
+            view.setEnabled(true);
         }
     }
 

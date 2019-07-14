@@ -41,6 +41,11 @@ class ToastUtils{
         fun toast(text: String){
             Toast.makeText(LoanApplication.context,text,Toast.LENGTH_SHORT).show()
         }
+        @JvmStatic
+        fun toast(text: Int) {
+            var context=LoanApplication.context
+            Toast.makeText(context,context.getText(text),Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

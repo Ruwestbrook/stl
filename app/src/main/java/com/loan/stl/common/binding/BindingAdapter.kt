@@ -1,6 +1,7 @@
 package com.loan.stl.common.binding
 
 import android.view.View
+import androidx.databinding.BindingAdapter
 import com.loan.stl.common.NoDoubleClick
 import com.loan.stl.module.home.viewControl.MineControl
 
@@ -11,13 +12,14 @@ import com.loan.stl.module.home.viewControl.MineControl
  */
 class BindingAdapter{
     companion object{
-        open fun click(view: View,mineControl: MineControl){
-            view.setOnClickListener(object : NoDoubleClick() {
-                override fun onMultiClick(v: View) {
-                    mineControl.openSetting(v)
-                }
-            })
-
+        @BindingAdapter("visibility")
+        @JvmStatic
+        open fun visibility(view: View,text:String?){
+            view.visibility=
+                if(text==null || text == "")
+                    View.GONE
+                else
+                    View.VISIBLE
 
         }
 

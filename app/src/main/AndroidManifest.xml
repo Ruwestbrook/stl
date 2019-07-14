@@ -3,11 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.loan.stl">
 
+
+
+    <!--获取上网权利-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--获取网络状态-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
+    <!--获取手机状态-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!--读写文件权利-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".LoanApplication"
@@ -19,23 +30,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".module.user.ui.activity.SettingActivity" />
-        <activity android:name=".module.user.ui.activity.ForgetPayPassActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".module.user.ui.activity.LoginActivity" />
-        <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
-
-
-        <activity android:name=".module.user.ui.activity.FeedbackActivity" >
-
+        <activity android:name=".module.user.ui.activity.SettingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".module.user.ui.activity.ForgetPayPassActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".module.user.ui.activity.LoginActivity" >
+
+
+        </activity>
+        <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
+
+
+        <activity android:name=".module.user.ui.activity.FeedbackActivity" >
+
+
+        </activity>
+        <activity android:name=".common.ActivityWebView" />
 
     </application>
 
