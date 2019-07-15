@@ -14,9 +14,9 @@ package com.loan.stl.module.user.dataModel.receive
 /** 用户ID  */
 /** 头像地址  */
 /** 隐藏用户名  */
-data class OauthTokenMo(val refreshToken: String?,
+data class OauthTokenMo(var refreshToken: String?,
                         var username: String?,
-                        val token: String?,
-                        val userId: String?,
-                        val avatarPhoto: String?,
-                        val hideUserName: String? )
+                        var token: String?,
+                        var userId: String?,
+                        var avatarPhoto: String?,
+                        var hideUserName: String? )

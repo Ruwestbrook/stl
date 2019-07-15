@@ -1,12 +1,15 @@
 package com.loan.custom;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
+import com.loan.custom.tool.DeviceUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,14 +50,20 @@ public class TimeButton extends TextView{
     private String        currentTimeStr;
 
     public TimeButton(Context context) {
-        super(context);
-        textInit = this.getText().toString();
-        //        setOnClickListener(this);
+        this(context,null);
     }
 
     public TimeButton(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
+
+
+    }
+
+    public TimeButton(Context context,AttributeSet attrs, int defStyleAttr) {
+        super(context,attrs,defStyleAttr);
         textInit = this.getText().toString();
+        setGravity(Gravity.CENTER);
+        setTextSize(14);
         //        setOnClickListener(this);
     }
 
@@ -139,6 +148,7 @@ public class TimeButton extends TextView{
     //            mOnclickListener.onClick(v);
     //    }
 
+    @SuppressLint("SetTextI18n")
     public void runTimer() {
         initTimer();
         this.setText(time / 1000 + textAfter);

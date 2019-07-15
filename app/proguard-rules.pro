@@ -116,3 +116,60 @@
 ## for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
+
+
+#高德地图定位 开始#
+    #定位
+    -keep class com.amap.api.location.**{*;}
+    -keep class com.amap.api.fence.**{*;}
+    -keep class com.autonavi.aps.amapapi.model.**{*;}
+
+    #搜索
+    -keep   class com.amap.api.services.**{*;}
+
+    #2D地图
+    -keep class com.amap.api.maps2d.**{*;}
+    -keep class com.amap.api.mapcore2d.**{*;}
+
+     #导航
+    -keep class com.amap.api.navi.**{*;}
+    -keep class com.autonavi.**{*;}
+
+#高德地图定位 结束#
+
+
+# Gson
+-keep class com.lianlian.face.** {*;}
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-keep public class * implements java.io.Serializable {*;}
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keep class java.awt.** { *; }
+-dontwarn com.sun.jna.**
+-keep class com.sun.jna.** { *; }
+
+#有盾ORC 开始#
+#-- udcredit  NEED --
+-keep class com.face.** {*;}
+-keep class cn.com.bsfit.** {*;}
+-keep class com.android.snetjob.** {*;}
+-keep class com.udcredit.** { *; }
+-keep class com.authreal.** { *; }
+-keep class com.hotvision.** { *; }
+-keep class com.google.gson.stream.** { *; }
+#有盾ORC 结束#

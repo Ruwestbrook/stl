@@ -38,7 +38,7 @@ class LogUtils {
 class ToastUtils{
     companion object{
         @JvmStatic
-        fun toast(text: String){
+        fun toast(text: String?){
             Toast.makeText(LoanApplication.context,text,Toast.LENGTH_SHORT).show()
         }
         @JvmStatic

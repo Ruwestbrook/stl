@@ -1,7 +1,10 @@
 package com.loan.stl.network.api
 
 import com.loan.stl.common.BundleKeys
+import com.loan.stl.module.mine.dataModel.receive.*
+import com.loan.stl.module.user.dataModel.receive.InfoRec
 import com.loan.stl.module.user.dataModel.receive.TradeStateRec
+import com.loan.stl.module.user.dataModel.receive.UpdatePwdSub
 import com.loan.stl.network.entity.HttpResult
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -14,14 +17,14 @@ time: 2019-07-14:14:01
 describe：
  */
 interface MineService {
-//    /** 获取认证信息  */
-//    @GET("act/mine/userAuth/getUserAuth.htm")
-//    fun getUserAuth(): Call<HttpResult<CreditStatusRec>>
-//
-//    /** 获取字典  */
-//    @GET("act/dict/list.htm")
-//    abstract fun getDicts(@Query(BundleKeys.TYPE) type: String): Call<HttpResult<DicRec>>
-//
+    /** 获取认证信息  */
+    @GET("act/mine/userAuth/getUserAuth.htm")
+    fun getUserAuth(): Call<HttpResult<CreditStatusRec>>
+
+    /** 获取字典  */
+    @GET("act/dict/list.htm")
+    abstract fun getDicts(@Query(BundleKeys.TYPE) type: String): Call<HttpResult<DicRec>>
+
 //    /** 保存联系人信息  */
 //    @POST("act/mine/contact/saveOrUpdate.htm")
 //    abstract fun contactSaveOrUpdate(@Body sub: CreditLinkerSub): Call<HttpResult>
@@ -29,10 +32,10 @@ interface MineService {
 //    /** 获取联系人信息  */
 //    @GET("act/mine/contact/getContactInfoList.htm")
 //    abstract fun getContactInfoList(): Call<HttpResult<ListData<CreditLinkerRec>>>
-//
-//    /** 获取银行卡列表  */
-//    @GET("act/mine/bankCard/getBankCardList.htm")
-//    abstract fun getBankCardList(): Call<HttpResult<CreditBankRec>>
+
+    /** 获取银行卡列表  */
+    @GET("act/mine/bankCard/getBankCardList.htm")
+    fun getBankCardList(): Call<HttpResult<CreditBankRec>>
 //
 //    /** 保存银行卡  */
 //    @POST("act/mine/bankCard/authSign.htm")
@@ -99,18 +102,13 @@ interface MineService {
 //    @Multipart
 //    @POST("act/mine/userInfo/authentication.htm")
 //    abstract fun updateIdCardCreditTwo(@HeaderMap head: Map<String, String>, @PartMap params: Map<String, RequestBody>): Call<HttpResult>
-//
-//    /*
-//
-//     2019/07/08 russell 修改
-//
-//    接口地址act/mine/userInfo/getUserInfo.htm" -> act/mine/userInfo/v2/getUserInfo.htm
-//
-//     */
-//    /** 获取个人信息  */
-//    @GET("act/mine/userInfo/v2/getUserInfo.htm")
-//    abstract fun getUserInfo(): Call<HttpResult<CreditPersonRec>>
-//
+
+
+
+    /** 获取个人信息  */
+    @GET("act/mine/userInfo/v2/getUserInfo.htm")
+    fun getUserInfo(): Call<HttpResult<CreditPersonRec>>
+
 //    /** 运营商信息认证接口  */
 //    @POST("act/mine/operator/operatorCollect.htm")
 //    abstract fun operatorCollect(@Body sub: CreditPhoneTwoSub): Call<HttpResult<CreditPhoneRec>>
@@ -130,11 +128,11 @@ interface MineService {
 //    /** OCR使用记录同步  */
 //    @POST("act/mine/sdk/synchron.htm")
 //    abstract fun ocrSynchron(@Body sub: IdCardSyncSub): Call<HttpResult>
-//
-//    /** 身份证识别次数初始化  */
-//    @GET("act/mine/sdk/find.htm")
-//    abstract fun idCardCreditTime(): Call<HttpResult<IdCardTimeRec>>
-//
+
+    /** 身份证识别次数初始化  */
+    @GET("act/mine/sdk/find.htm")
+    fun idCardCreditTime(): Call<HttpResult<IdCardTimeRec>>
+
 //    /** 身份证识别次数初始化  */
 //    @GET("act/mine/userInfo/ocrUrl.htm")
 //    abstract fun ocrUrl(): Call<HttpResult<FaceOcrRec>>
@@ -186,11 +184,11 @@ interface MineService {
 //    /** 芝麻信息  */
 //    @GET("act/mine/zhima/authorize.htm")
 //    abstract fun authorize(): Call<HttpResult<CreditUrlRec>>
-//
-//    /** 获取个人信息  */
-//    @POST("act/user/info.htm")
-//    abstract fun getInfo(): Call<HttpResult<InfoRec>>
-//
+
+    /** 获取个人信息  */
+    @POST("act/user/info.htm")
+    fun getInfo(): Call<HttpResult<InfoRec>>
+
     /** 交易密码状态  */
     @POST("act/user/getTradeState.htm")
     fun getTradeState(): Call<HttpResult<TradeStateRec>>
@@ -198,11 +196,11 @@ interface MineService {
     /** 退出登录  */
     @POST("user/logout.htm")
     fun logout(): Call<HttpResult<Any>>
-//
-//    /** 修改密码  */
-//    @POST("act/user/changeLoginPwd.htm")
-//    abstract fun updatePwd(@Body sub: UpdatePwdSub): Call<HttpResult>
-//
+
+    /** 修改密码  */
+    @POST("act/user/changeLoginPwd.htm")
+    fun updatePwd(@Body sub: UpdatePwdSub): Call<HttpResult<Any>>
+
 //    /** 找回交易密码身份验证  */
 //    @POST("act/user/validateUser.htm")
 //    abstract fun validateUser(@Body sub: ForgotPaySub): Call<HttpResult<PassRec>>

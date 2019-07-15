@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ctrl"
+            type="com.loan.stl.module.user.viewControl.ForgetLoginControl"/> />
+    </data>
+
+    <LinearLayout
+        android:background="@color/bg_color_f8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".module.user.ui.activity.ForgetLoginActivity">
+
+        <include layout="@layout/title" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:id="@+id/first"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                style="@style/normalLeftRightMargin"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/settings_forgot_pay_phone"
+                    android:textSize="@dimen/text_size_h4"
+                    android:gravity="center|left"
+                    android:textColor="@color/text_color_34"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:hint="@string/settings_forgot_pay_phone_tip"
+                    style="@style/padding_edit"
+                    android:text="@={ctrl.forgetLoginVM.phone}"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/normalLeftRightMargin"
+                android:layout_width="match_parent"
+                android:background="@color/bg_color_f8"
+                android:layout_height="2dp"/>
+
+            <LinearLayout
+                style="@style/normalLeftRightMargin"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/settings_forgot_pay_code"
+                    android:textSize="@dimen/text_size_h4"
+                    android:gravity="center|left"
+                    android:textColor="@color/text_color_34"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:text="@={ctrl.forgetLoginVM.code}"
+                    android:hint="@string/settings_forgot_pay_code_tip"
+                    style="@style/padding_edit"
+                    android:layout_height="match_parent" />
+
+                <com.loan.custom.TimeButton
+                    android:layout_width="0dp"
+                    android:text="@string/bank_verify_send_code"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                style="@style/button_style"
+                android:onClick="@{ctrl::nextStep}"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/next_step"
+                android:layout_marginTop="25dp"
+                android:layout_height="44dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:id="@+id/second"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                style="@style/normalLeftRightMargin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/settings_pwd_new_pwd"
+                    android:textSize="@dimen/text_size_h4"
+                    android:gravity="center|left"
+                    android:textColor="@color/text_color_34"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:hint="@string/settings_pwd_new_pwd_hint"
+                    style="@style/padding_edit"
+                    android:text="@={ctrl.forgetLoginVM.newPass}"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <View
+                style="@style/normalLeftRightMargin"
+                android:layout_width="match_parent"
+                android:background="@color/bg_color_f8"
+                android:layout_height="2dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                style="@style/normalLeftRightMargin"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="@string/settings_pwd_confirm_pwd"
+                    android:textSize="@dimen/text_size_h4"
+                    android:gravity="center|left"
+                    android:textColor="@color/text_color_34"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:text="@={ctrl.forgetLoginVM.repeatPass}"
+                    android:hint="@string/settings_pwd_confirm_pwd_hint"
+                    style="@style/padding_edit"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalLeftRightMargin"
+                android:layout_marginTop="15dp"
+                android:text="@string/settings_pwd_desc"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/text_size_h5" />
+            <Button
+                android:layout_width="match_parent"
+                style="@style/button_style"
+                android:onClick="@{ctrl::submit}"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/settings_pwd_sub"
+                android:layout_marginTop="25dp"
+                android:layout_height="44dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

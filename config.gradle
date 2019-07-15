@@ -1,0 +1,18 @@
+ext {
+
+    isDebug = true
+    android = [
+
+            applicationId       : "com.shentouli.stl",
+
+            // 签名store
+            storeFile : "../stl.jks",
+            storePassword       : "shentouli",
+            keyAlias : "shentouli",
+            keyPassword         : "shentouli",
+
+            umengKey : "59f291ecb27b0a6a79000017",
+            mapGDKey : "21cc398bbb0ce128493749e918cc7c02",
+    ]
+
+}

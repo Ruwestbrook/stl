@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.loan.stl.common.ActivityManage
 import com.loan.stl.common.AppConfig
 import com.loan.stl.common.BaseParams
+import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
 import com.loan.stl.utils.LogUtils
 import com.loan.stl.utils.SPreferences.SharedInfo
 
@@ -36,6 +37,7 @@ class LoanApplication :Application() {
         closeAndroidPDialog()
         registerActivity()
         basicInit()
+        testLogin()
     }
 
     private fun basicInit() {
@@ -106,5 +108,17 @@ class LoanApplication :Application() {
             e.printStackTrace()
         }
 
+    }
+
+    private fun testLogin(){
+
+        var oauthTokenMo=OauthTokenMo("c6be32c9564c4a339565a367ea4d3c56",
+             "15757071829",
+            "0caed270a77343a2a6a7ffcbbbd14a9f",
+            "4074",
+            "",
+            ""
+            )
+        SharedInfo.getInstance().saveEntity(oauthTokenMo)
     }
 }

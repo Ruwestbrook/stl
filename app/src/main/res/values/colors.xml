@@ -29,4 +29,11 @@
 
 
     <color name="bg_color_f8">#F8F8F8</color>
+    <!-- 默认背景色 -->
+    <color name="backgroundColor">#f3f4f8</color>
+
+    <!--分割线-->
+    <color name="divide_line">#f3f4f8</color>
+    <color name="divide_line_org">#CF410B</color>
+
 </resources>

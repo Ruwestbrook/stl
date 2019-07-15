@@ -13,11 +13,7 @@ class RequestResultCode {
     const val REQ_CAN_TRANSFER_TO_TRANSFER = 1001
     const val RES_CAN_TRANSFER_TO_TRANSFER = 1001
     /** 重新绑定银行卡  */
-    const val REQ_AGAIN_BIND = 1002
-    const val RES_AGAIN_BIND = 1002
-    const val RES_AUTH_BANK_OK = 10021
-    const val RES_AUTH_BANK_OK_REPLAY = 10022
-    const val RES_AUTH_BANK_NEXT = 10022
+    const val REQ_CARD_BIND = 1002
     /** 高德地图  */
     const val REQ_GD_MAP = 1003
     const val RES_GD_MAP = 1003

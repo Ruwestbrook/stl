@@ -8,5 +8,5 @@ package com.loan.stl.module.user.dataModel.receive
  *
  * Description:
  */
-data class IsExistsRec (/** 是否存在 10 不存在  */ var isExists: String? = null)
+data class IsExistsRec (/** 是否存在 10 不存在  */ val isExists: String? = null)
 

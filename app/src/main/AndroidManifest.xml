@@ -2,23 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.loan.stl">
-
-
-
-    <!--获取上网权利-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-    <!--获取网络状态-->
+    <!-- 获取上网权利 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 获取手机状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 读写文件权利 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <!--获取手机状态-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <!--读写文件权利-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission
+        android:name="android.permission.BATTERY_STATS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".LoanApplication"
@@ -30,31 +38,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".module.user.ui.activity.SettingActivity">
+        <activity android:name=".module.mine.ui.activity.GdMapActivity"></activity>
+        <activity android:name=".module.user.ui.activity.UpdateLoginActivity" />
+        <activity android:name=".module.user.ui.activity.UpdatePayActivity" />
+        <activity android:name=".module.user.ui.activity.SettingActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".module.user.ui.activity.LoginActivity" />
+        <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
+        <activity android:name=".module.user.ui.activity.FeedbackActivity" />
+        <activity android:name=".common.ActivityWebView" />
+        <activity android:name=".module.mine.ui.activity.BankCardActivity">
+
+        </activity>
+        <activity android:name=".module.user.ui.activity.ForgetPayActivity" />
+        <activity android:name=".module.user.ui.activity.ForgetLoginActivity" />
+        <activity android:name=".module.mine.ui.activity.BindCardActivity" />
+        <activity android:name=".module.mine.ui.activity.CreditPersonActivity" >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".module.user.ui.activity.ForgetPayPassActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".module.user.ui.activity.LoginActivity" >
-
-
-        </activity>
-        <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
-
-
-        <activity android:name=".module.user.ui.activity.FeedbackActivity" >
-
-
-        </activity>
-        <activity android:name=".common.ActivityWebView" />
-
     </application>
 
 </manifest>

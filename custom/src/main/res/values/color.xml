@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="white">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="text_blue">#24B1F7</color>
+
+
+    <!-- 字体颜色 -->
+    <!-- 重点文字-->
+    <color name="text_dark">#333333</color>
+    <!-- 次级文字（输入状态文字）-->
+    <color name="text_black">#333333</color>
+    <!--提示文字-->
     <color name="text_grey">#999999</color>
+
+    <color name="back_gray">#F2F2F2</color>
+
+    <color name="line_grey" tools:ignore="MissingDefaultResource">#DDDDDD</color>
+
 
 </resources>

@@ -52,6 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="17dp"
         style="@style/text_34_17"
+        android:id="@+id/card"
         android:text="@string/test_bank_id"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17dp" />

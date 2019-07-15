@@ -90,6 +90,10 @@
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/text_color_34</item>
     </style>
+    <style name="text_34_15">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_color_34</item>
+    </style>
     <style name="text_80_14">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_color_80</item>
@@ -108,6 +112,29 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
     </style>
+
+
+    <!-- 带 Padding 的 EditText Style -->
+    <style name="padding_edit" parent="text_34_15">
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+
+    <!-- 左右文字 -->
+    <style name="CoupleLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
 
 </resources>
 

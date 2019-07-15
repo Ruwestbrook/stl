@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="1"
+            style="@style/text_34_15"
+            android:text="@string/bank_name"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="3"
+            style="@style/padding_edit"
+            android:hint="@string/person_name_hint"
+            android:focusable="false"
+
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:background="@color/white"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="1"
+            style="@style/text_34_15"
+            android:text="@string/bank_select_bank"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="3"
+            style="@style/padding_edit"
+            android:drawableRight="@drawable/icon_enter"
+            android:hint="@string/bank_select_bank_hint"
+            android:focusable="false"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:background="@color/white"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="1"
+            style="@style/text_34_15"
+            android:text="@string/bank_bank_card"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="3"
+            style="@style/padding_edit"
+            android:hint="@string/bank_card_no_hint"
+            android:focusable="false"
+            android:layout_height="match_parent"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginTop="2dp"
+        android:background="@color/white"
+        style="@style/normalLeftRightMargin"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="1"
+            style="@style/text_34_15"
+            android:text="@string/bank_phone"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:gravity="center|left"
+            android:layout_weight="3"
+            style="@style/padding_edit"
+            android:hint="@string/bank_phone_hint"
+            android:focusable="false"
+            android:layout_height="match_parent"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        style="@style/normalLeftRightMargin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="@string/settings_forgot_pay_code"
+            android:textSize="@dimen/text_size_h4"
+            android:gravity="center|left"
+            android:textColor="@color/text_color_34"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:text="@={ctrl.forgetLoginVM.code}"
+            android:hint="@string/settings_forgot_pay_code_tip"
+            style="@style/padding_edit"
+            android:layout_height="match_parent" />
+
+        <com.loan.custom.TimeButton
+            android:layout_width="0dp"
+            android:text="@string/bank_verify_send_code"
+            android:layout_weight="2"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        style="@style/button_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="@string/save"
+        android:layout_marginTop="25dp"
+        android:layout_height="44dp" />
+
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:src="@drawable/icon_green_security"
+            android:layout_height="12dp" />
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:includeFontPadding="false"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/credit_security"
+            android:textColor="@color/app_color_green"
+            android:textSize="@dimen/text_size_h7" />
+    </LinearLayout>
+
+</LinearLayout>

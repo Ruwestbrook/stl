@@ -68,13 +68,20 @@ class SettingActivity : AppCompatActivity() {
             }
         })
     }
+    /*
+        修改登录密码
+     */
 
+    fun setLoginPwd(view: View){
+        ARouter.getInstance().build(RouterUrl.UPDATE_LOGIN_PASSWORD)
+            .navigation()
+    }
 
     /*
      修改或者设置交易密码
      */
     fun setPayPwd(view: View){
-        ARouter.getInstance().build(RouterUrl.FORGET_PAY_PASSWROD)
+        ARouter.getInstance().build(RouterUrl.UPDATE_PASSWORD)
             .withInt(BundleKeys.TYPE,payType)
             .navigation()
 

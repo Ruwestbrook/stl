@@ -16,6 +16,7 @@
     <string name="dialog_title">提示</string>
     <string name="explain_text">使用说明</string>
 
+    <string name="dialog_file_too_big">文件过大</string>
     <!--首页-->
     <string name="advantage_1">利率透明</string>
     <string name="advantage_2">高效审批</string>
@@ -101,6 +102,8 @@
 
     <!--实名认证-->
     <string name="credit_person_tips">身份认证信息保存后无法修改，请务必保证正确</string>
+    <string name="save">保存</string>
+    <string name="credit_security">银行级数据加密保护</string>
     <string name="credit_person">身份认证</string>
     <string name="credit_face">人脸识别</string>
     <string name="credit_name">姓名    </string>
@@ -112,7 +115,7 @@
     <string name="credit_details_address">请输入详细地址</string>
     <string name="select_credit_address">请选择现居地址</string>
 
-
+    <color name="app_color_green">#4abe89</color>
     <!--我的-->
 
     <string name="login">登录</string>
@@ -152,9 +155,6 @@
     <string name="loan_next_text">点击下一步即表示您已经同意</string>
     <string name="loan_protocol_lists">借款等相关协议</string>
     <string name="every_stage_return">每期还</string>
-
-
-
 
 
     <!-- 设置 -->
@@ -206,6 +206,65 @@
     <string name="settings_forgot_pay_name_not_chinese">真实姓名仅为中文</string>
     <string name="settings_forgot_pay_no_tip">请填写身份证号</string>
     <string name="settings_forgot_pay_code_tip">请输入短信验证码</string>
+
+
+    <!-- 银行卡 -->
+    <string name="credit_bank_title">添加银行卡</string>
+    <string name="credit_bank_again_title">重新绑定银行卡</string>
+    <string name="credit_bank_title_bind">已绑银行卡</string>
+    <string name="credit_bank_tips">添加您的银行卡用于收款</string>
+    <string name="credit_bank_tips1">请填写银行卡信息</string>
+    <string name="bank_name">持卡人</string>
+    <string name="person_name_hint">通过身份证识别自动填充</string>
+
+    <string name="bank_select_bank">选择银行</string>
+    <string name="bank_select_bank_hint">请选择银行</string>
+    <string name="bank_card_no">卡号</string>
+    <string name="bank_card_no_hint">请输入银行卡号</string>
+    <string name="bank_card_no_error">请输入正确的卡号</string>
+    <string name="bank_phone">手机号</string>
+    <string name="bank_phone_hint">请输入银行预留手机号</string>
+    <string name="bank_phone_toast">请输入正确的手机号</string>
+    <string name="bank_verify_code">验证码</string>
+    <string name="repay_bank_verify_send_code">还款确认</string>
+    <string name="bank_verify_code_hint">请输入验证码</string>
+    <string name="bank_belong">所属银行</string>
+    <string name="bank_bank_card">银行卡号</string>
+    <string name="bank_bank_phone">预留手机号</string>
+    <string name="bank_success_tips"></string>
+    <string name="bank_bind_again">重新绑卡</string>
+    <string name="auth_sms_submit">验证</string>
+    <string name="auth_sms_bank_titlet">验证银行卡</string>
+
+
+
+
+
+    <!-- 个人信息 -->
+    <string name="credit_person_title">个人信息</string>
+    <string name="credit_face_toast">请进行人脸识别</string>
+    <string name="credit_id_card_toast">请进行身份证识别</string>
+    <string name="credit_name_toast">请填写真实姓名</string>
+    <string name="credit_card_no_toast">请填写身份证号</string>
+    <string name="credit_confirm_toast">请再次确认您的身份信息\n\n姓名：%1$s \n身份证号：%2$s</string>
+    <string name="credit_back_update">返回修改</string>
+    <string name="credit_confirm_submit">确认提交</string>
+    <string name="credit_scan_error_tips">今日操作过于频繁，请明日再试</string>
+    <string name="person_face">人脸识别</string>
+    <string name="person_face_four">人脸注册</string>
+    <string name="person_card">身份证识别</string>
+    <string name="person_name">姓名</string>
+    <string name="person_card_no_hint">通过身份证识别自动填充</string>
+    <string name="person_card_no">身份证</string>
+    <string name="person_education">学历</string>
+    <string name="person_education_hint">请选择学历</string>
+    <string name="person_address_now">现居地址</string>
+    <string name="person_address_now_toast">请选择现居地址</string>
+    <string name="person_address_now_hint">请填写具体街道门牌号</string>
+    <string name="person_marriage">婚姻状态</string>
+    <string name="person_marriage_hint">请选择婚姻状态</string>
+    <string name="person_live_time">居住时长</string>
+    <string name="person_first">请先完成个人信息认证</string>
 
 
     <!--测试数据-->

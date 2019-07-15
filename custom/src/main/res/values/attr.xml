@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordInputView"><attr format="dimension" name="borderSize"/>
+        <attr format="color" name="borderColor"/><attr format="dimension" name="borderRadius"/>
+        <attr format="integer" name="passwordLength"/>
+        <attr format="dimension" name="passwordWidth"/>
+        <attr format="color" name="passwordColor"/>
+        <attr format="dimension" name="passwordRadius"/>
+    </declare-styleable>
+
+
+</resources>

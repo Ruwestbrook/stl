@@ -27,7 +27,8 @@ android {
         //当前版本号
         versionName "1.0.1"
 
-        applicationId "com.loan.stl"
+       // applicationId "com.loan.stl"
+        applicationId "com.shentouli.stl"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -44,9 +45,15 @@ android {
             }
             generateStubs = true
         }
+
+        ndk {
+            // 设置支持的 SO 库构架
+
+            abiFilters 'armeabi-v7a'//,'armeabi',  'arm64-v8a',"arm64-v8a", "x86","x86 _64"//, 'x86_64', 'mips', 'mips64'
+        }
     }
     buildTypes {
-        debug{
+        debug {
             signingConfig signingConfigs.debug
         }
         release {
@@ -87,6 +94,17 @@ dependencies {
     kapt 'com.alibaba:arouter-compiler:1.1.2'
     // DataBinding 注解处理依赖
     kapt 'com.android.databinding:compiler:3.1.4'
+
+    //高德地图
+    implementation 'com.amap.api:location:4.7.0'
+    implementation 'com.amap.api:search:6.9.0'
+    implementation 'com.amap.api:map2d:5.2.0'
+
+    //有盾OCR识别
+    implementation(name: 'UDSDKV4.0.LL190509.20190522-v7a', ext: 'aar')
+
+    //选择框
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
 
 
 }

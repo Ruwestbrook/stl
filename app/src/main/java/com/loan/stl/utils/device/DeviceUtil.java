@@ -41,7 +41,7 @@ public class DeviceUtil {
      *
      * @return
      */
-    public static int dp2px(Context context, float dpValue) {
+    public static int dp2px(Context context, int dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
