@@ -1,4 +1,4 @@
-package com.loan.stl.module.user.dataModel.receive
+package com.loan.stl.module.user.dataModel.submit
 
 import com.loan.stl.network.annotation.SerializedEncryption
 

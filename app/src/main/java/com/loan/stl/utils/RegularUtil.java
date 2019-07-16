@@ -166,4 +166,13 @@ public class RegularUtil {
         Matcher matcher2 = regex2.matcher(cardNo);
         return matcher1.matches() || matcher2.matches() ;
     }
+    /***
+     * 验证手机长度
+     */
+    public static boolean isPhoneLength(String phone){
+        if (TextUtils.isEmpty(phone)) {
+            return false;
+        }
+        return phone.length() == 11;
+    }
 }

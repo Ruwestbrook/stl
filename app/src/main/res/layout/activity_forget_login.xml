@@ -126,7 +126,7 @@
                     android:layout_weight="5"
                     android:hint="@string/settings_pwd_new_pwd_hint"
                     style="@style/padding_edit"
-                    android:text="@={ctrl.forgetLoginVM.newPass}"
+                    android:text="@={ctrl.forgetLoginVM.pwd}"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
@@ -154,7 +154,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_weight="5"
-                    android:text="@={ctrl.forgetLoginVM.repeatPass}"
+                    android:text="@={ctrl.forgetLoginVM.confirmPwd}"
                     android:hint="@string/settings_pwd_confirm_pwd_hint"
                     style="@style/padding_edit"
                     android:layout_height="match_parent" />

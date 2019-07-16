@@ -2,10 +2,9 @@ package com.loan.stl.module.user.viewControl
 
 import android.view.View
 import com.loan.stl.R
-import com.loan.stl.common.Constant
-import com.loan.stl.module.user.dataModel.LoginSub
-import com.loan.stl.module.user.dataModel.receive.IsExistsRec
 import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
+import com.loan.stl.module.user.dataModel.submit.LoginSub
+import com.loan.stl.module.user.ui.activity.UserLogic
 import com.loan.stl.module.user.viewModel.LoginVM
 import com.loan.stl.network.HttpClient
 import com.loan.stl.network.NetworkUtil
@@ -14,7 +13,9 @@ import com.loan.stl.network.api.UserService
 import com.loan.stl.network.entity.HttpResult
 import com.loan.stl.utils.LogUtils
 import com.loan.stl.utils.RegularUtil
+import com.loan.stl.utils.SPreferences.SharedInfo
 import com.loan.stl.utils.ToastUtils
+import com.loan.stl.utils.Util
 import retrofit2.Call
 import retrofit2.Response
 
@@ -71,7 +72,10 @@ class LoginControl {
                 call: Call<HttpResult<OauthTokenMo>>?,
                 response: Response<HttpResult<OauthTokenMo>>?
             ) {
-               // val oauthTokenMo=response?.body()!!.data
+                val oauthTokenMo=response?.body()!!.data
+                if(oauthTokenMo!=null){
+                   UserLogic.login(Util.getActivity(view),oauthTokenMo)
+                }
             }
 
         })

@@ -16,7 +16,8 @@ class AppConfig {
          const val URI_AUTHORITY_BETA = "http://beta.interface.xjd.666news.cn/"
 
 
-
+         //666地址
+         const val URL_SIX = "http://114.55.57.244/interface/"
 
          //2019/07/04 russell更换
          const val SIX_APP_KEY = "75b14dd6936a4425a4cbfca08a4da5a2"

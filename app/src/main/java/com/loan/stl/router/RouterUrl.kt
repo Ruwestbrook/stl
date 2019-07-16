@@ -44,17 +44,22 @@ class RouterUrl{
             const val FEEDBACK_PAGE="/activity/feedback"
 
             /* 修改登录密码*/
-            const val UPDATE_LOGIN_PASSWORD="activity/login/password"
-                const val FORGET_LOGIN_PASSWORD="activity/login/forget"
+            const val UPDATE_LOGIN_PASSWORD="/activity/login/password"
+                const val FORGET_LOGIN_PASSWORD="/activity/login/forget"
 
         /***********************************************/
-        /************* 设置界面 *****************/
+        /************* 货款流程 *****************/
         /***********************************************/
 
 
 
+        /* 紧急联系人 */
+        const val ACTIVITY_LINKER="/activity/linker"
+        /* 验证身份 */
+        const val ACTIVITY_IDENTITY="/activity/identity"
 
-
+        /* 定位 */
+        const val ACTIVITY_MAP="/activity/map"
 
 
 

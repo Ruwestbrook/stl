@@ -4,7 +4,7 @@ import android.view.View
 import com.loan.stl.R
 import com.loan.stl.common.ActivityManage
 import com.loan.stl.module.user.dataModel.receive.InfoRec
-import com.loan.stl.module.user.dataModel.receive.UpdatePwdSub
+import com.loan.stl.module.user.dataModel.submit.UpdatePwdSub
 import com.loan.stl.module.user.viewModel.UpdateLoginVM
 import com.loan.stl.network.HttpClient
 import com.loan.stl.network.NetworkUtil
@@ -59,7 +59,7 @@ class UpdateLoginControl {
             return
         }
         val call = HttpClient.getService(MineService::class.java).
-            updatePwd(UpdatePwdSub(loginVM.oldPass,loginVM.oldPass))
+            updatePwd(UpdatePwdSub(loginVM.oldPass, loginVM.oldPass))
         NetworkUtil.showCutscenes(call)
         call.enqueue(object : ResponseCallback<HttpResult<Any>>() {
           override  fun onSuccess(call: Call<HttpResult<Any>>, response: Response<HttpResult<Any>>) {

@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.loan.stl.R
 import com.loan.stl.common.BaseActivity
 import com.loan.stl.databinding.ActivityUpdateLoginBinding
+import com.loan.stl.module.user.viewControl.UpdateLoginControl
 import com.loan.stl.router.RouterUrl
 
 /**
@@ -21,8 +22,8 @@ class UpdateLoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DataBindingUtil.setContentView<ActivityUpdateLoginBinding>(this,R.layout.activity_update_login)
-
+       val binding= DataBindingUtil.setContentView<ActivityUpdateLoginBinding>(this,R.layout.activity_update_login)
+        binding.ctrl= UpdateLoginControl()
     }
 
 

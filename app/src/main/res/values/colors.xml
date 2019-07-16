@@ -36,4 +36,7 @@
     <color name="divide_line">#f3f4f8</color>
     <color name="divide_line_org">#CF410B</color>
 
+    <!-- 地图颜色 -->
+    <color name="amap_transparent_theme_color">#664ab6fa</color>
+
 </resources>

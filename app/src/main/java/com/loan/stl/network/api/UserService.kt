@@ -1,9 +1,9 @@
 package com.loan.stl.network.api
 
 
-import com.loan.stl.module.user.dataModel.LoginSub
 import com.loan.stl.module.user.dataModel.receive.IsExistsRec
 import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
+import com.loan.stl.module.user.dataModel.submit.LoginSub
 import com.loan.stl.network.RequestParams
 import com.loan.stl.network.entity.HttpResult
 import retrofit2.Call
@@ -23,11 +23,11 @@ interface UserService {
     @POST("user/login.htm")
     fun doLogin(@Body sub: LoginSub): Call<HttpResult<OauthTokenMo>>
 
-    //    /** 刷新令牌 */
-    //    @FormUrlEncoded
-    //    @POST("user/autoLogin.htm")
-    //    Call<HttpResult<OauthTokenMo>> refreshToken(@Field(RequestParams.REFRESH_TOKEN) String refreshToken);
-    //
+        /** 刷新令牌 */
+        @FormUrlEncoded
+        @POST("user/autoLogin.htm")
+        fun refreshToken(@Field(RequestParams.REFRESH_TOKEN)  refreshToken:String):Call<HttpResult<OauthTokenMo>>
+
     //    /** 注册_验证手机号是否存在 */
     @FormUrlEncoded
     @POST("user/isPhoneExists.htm")

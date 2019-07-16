@@ -2,12 +2,13 @@ package com.loan.stl.network.api
 
 import com.loan.stl.common.BundleKeys
 import com.loan.stl.module.mine.dataModel.receive.*
+import com.loan.stl.module.mine.dataModel.submit.CreditLinkerSub
+import com.loan.stl.module.mine.dataModel.submit.PhoneInfoSub
 import com.loan.stl.module.user.dataModel.receive.InfoRec
+import com.loan.stl.module.user.dataModel.receive.PassRec
 import com.loan.stl.module.user.dataModel.receive.TradeStateRec
-import com.loan.stl.module.user.dataModel.receive.UpdatePwdSub
+import com.loan.stl.module.user.dataModel.submit.UpdatePwdSub
 import com.loan.stl.network.entity.HttpResult
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,10 +26,10 @@ interface MineService {
     @GET("act/dict/list.htm")
     abstract fun getDicts(@Query(BundleKeys.TYPE) type: String): Call<HttpResult<DicRec>>
 
-//    /** 保存联系人信息  */
-//    @POST("act/mine/contact/saveOrUpdate.htm")
-//    abstract fun contactSaveOrUpdate(@Body sub: CreditLinkerSub): Call<HttpResult>
-//
+    /** 保存联系人信息  */
+    @POST("act/mine/contact/saveOrUpdate.htm")
+    fun contactSaveOrUpdate(@Body sub: CreditLinkerSub): Call<HttpResult<Any>>
+
 //    /** 获取联系人信息  */
 //    @GET("act/mine/contact/getContactInfoList.htm")
 //    abstract fun getContactInfoList(): Call<HttpResult<ListData<CreditLinkerRec>>>
@@ -204,23 +205,23 @@ interface MineService {
 //    /** 找回交易密码身份验证  */
 //    @POST("act/user/validateUser.htm")
 //    abstract fun validateUser(@Body sub: ForgotPaySub): Call<HttpResult<PassRec>>
-//
-//    /** 修改交易密码  */
-//    @POST("act/user/changeTradePwd.htm")
-//    abstract fun updatePayPwd(@Body sub: UpdatePwdSub): Call<HttpResult>
-//
-//    /** 验证交易密码是否正确  */
-//    @POST("act/user/validateTradePwd.htm")
-//    abstract fun validateTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult<PassRec>>
-//
-//    /** 设置交易密码  */
-//    @POST("act/user/setTradePwd.htm")
-//    abstract fun setTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult>
-//
-//    /** 重置交易密码  */
-//    @POST("act/user/resetTradePwd.htm")
-//    abstract fun resetTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult>
-//
+
+    /** 修改交易密码  */
+    @POST("act/user/changeTradePwd.htm")
+    fun updatePayPwd(@Body sub: UpdatePwdSub): Call<HttpResult<Any>>
+
+    /** 验证交易密码是否正确  */
+    @POST("act/user/validateTradePwd.htm")
+    fun validateTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult<PassRec>>
+
+    /** 设置交易密码  */
+    @POST("act/user/setTradePwd.htm")
+    fun setTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult<Any>>
+
+    /** 重置交易密码  */
+    @POST("act/user/resetTradePwd.htm")
+    fun resetTradePwd(@Body sub: UpdatePwdSub): Call<HttpResult<Any>>
+
 //    //******************* 代理商及邀请  *********************//
 //
 //    /** 获取运营商连接  */
@@ -272,15 +273,15 @@ interface MineService {
 //    /** 通话记录  */
 //    @POST("act/mine/userInfo/records.htm")
 //    abstract fun records(@Body sub: PhoneInfoSub): Call<HttpResult>
-//
-//    /** 短信  */
-//    @POST("act/mine/userInfo/messages.htm")
-//    abstract fun messages(@Body sub: PhoneInfoSub): Call<HttpResult>
-//
-//    /** 通讯录  */
-//    @POST("act/mine/userInfo/contacts.htm")
-//    abstract fun contacts(@Body sub: PhoneInfoSub): Call<HttpResult>
-//
+
+    /** 短信  */
+    @POST("act/mine/userInfo/messages.htm")
+    fun messages(@Body sub: PhoneInfoSub): Call<HttpResult<Any>>
+
+    /** 通讯录  */
+    @POST("act/mine/userInfo/contacts.htm")
+    fun contacts(@Body sub: PhoneInfoSub): Call<HttpResult<Any>>
+
 //    /** 获取认证中心图片  */
 //    @GET("act/mine/userAuth/getAuthImgLogo.htm")
 //    abstract fun getAuthImgLogo(): Call<HttpResult<CreditImgRec>>

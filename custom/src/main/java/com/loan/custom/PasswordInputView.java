@@ -31,7 +31,7 @@ public class PasswordInputView extends EditText {
         Resources res = this.getResources();
         int defaultBorderColor = res.getColor(R.color.line_grey);
         float defaultBorderWidth = DeviceUtil.dp2px(getContext(),1);
-        float defaultBorderRadius = res.getDimension(6);
+        float defaultBorderRadius = DeviceUtil.dp2px(getContext(),6);
         int defaultPasswordLength = 6;
         int defaultPasswordColor = res.getColor(R.color.text_black);
         float defaultPasswordWidth =  DeviceUtil.dp2px(getContext(),6);

@@ -9,8 +9,13 @@
             type="com.loan.stl.module.mine.viewControl.CreditControl" />
 
     </data>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <include layout="@layout/title" />
     <ScrollView
+        android:scrollbars="none"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="@color/bg_color_f8"
@@ -22,7 +27,7 @@
             android:background="@color/bg_color_f8"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/title" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -284,11 +289,12 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/address_layout"
+                android:onClick="@{ctrl::openMap}"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/bg_credit_item"
                 style="@style/normalLeftRightMargin"
                 android:layout_width="match_parent"
-                android:layout_height="84dp">
+                android:layout_height="94dp">
 
                 <TextView
                     android:layout_width="70dp"
@@ -346,19 +352,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:text="@string/next_step"
                 style="@style/button_style"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="21dp"
                 android:layout_height="44dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 style="@style/footer_style"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_height="wrap_content" />
 
 
@@ -366,4 +372,6 @@
 
 
     </ScrollView>
+</LinearLayout>
+
 </layout>

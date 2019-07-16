@@ -42,5 +42,16 @@ class RequestResultCode {
     /**续借或主动还款 */
     const val REQ_RENEW_REQUEST = 1010
     const val RES_RENEW_SUCCESS = 1010
+
+    /** 获取联系人权限 */
+    const val REQ_CONTACT_CODE=1011
+    /** 获取联系人权限 */
+    const val GET_CONTACT_CODE=1012
+
+    /** 定位 */
+    const val REQ_LOCATION_CODE=1013
+
+    /** 打开地图 */
+    const val REQ_MAP_CODE=1014
  }
 }

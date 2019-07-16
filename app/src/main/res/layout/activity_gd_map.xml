@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="ctrl"
+            type="com.loan.stl.module.mine.viewControl.GdMapCtrl" />
+    </data>
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +42,7 @@
                 <TextView
                     android:id="@+id/tv_search"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
@@ -50,7 +58,7 @@
                 <EditText
                     android:id="@+id/et_search"
                     android:layout_width="0dp"
-                    android:layout_height="45dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
@@ -66,7 +74,7 @@
                 <TextView
                     android:id="@+id/tv_search_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="45dp"
+                    android:layout_height="35dp"
                     android:layout_marginRight="15dp"
                     android:gravity="center"
                     android:paddingLeft="15dp"

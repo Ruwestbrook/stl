@@ -16,6 +16,10 @@
     <string name="dialog_title">提示</string>
     <string name="explain_text">使用说明</string>
 
+
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_confirm">确定</string>
+
     <string name="dialog_file_too_big">文件过大</string>
     <!--首页-->
     <string name="advantage_1">利率透明</string>
@@ -236,7 +240,9 @@
     <string name="auth_sms_submit">验证</string>
     <string name="auth_sms_bank_titlet">验证银行卡</string>
 
-
+    <string name="user_login_out">确定要登出?</string>
+    <string name="user_login_two">你的账号已在其他设备登录，如非本人操作请及时修改密码</string>
+    <string name="user_login_reset">重新登录</string>
 
 
 
@@ -265,6 +271,35 @@
     <string name="person_marriage_hint">请选择婚姻状态</string>
     <string name="person_live_time">居住时长</string>
     <string name="person_first">请先完成个人信息认证</string>
+
+    <!--验证身份-->
+    <string name="identity_work_type">请选择工作类型</string>
+    <string name="identity_work_salary">请填写工收入信息</string>
+
+    <string name="linker_permission_error">权限获取失败，请允许通讯录权限！</string>
+
+
+
+
+    <!-- 忘记密码 -->
+    <string name="forgot_pwd_title_step_1">找回登录密码</string>
+    <string name="forgot_phone_step_1">手机号</string>
+    <string name="forgot_phone_hint_step_1">手机号码</string>
+    <string name="forgot_pwd_code_step_1">短信验证码</string>
+    <string name="forgot_pwd_code_step_1_error">该手机号未注册</string>
+    <string name="forgot_pwd_code_hint_step_1">请输入短信验证码</string>
+    <string name="forgot_get_code_step_1">获取验证码</string>
+    <string name="forgot_pwd_next_step_1">下一步</string>
+    <string name="forgot_pwd_title_step_2">新登录密码</string>
+    <string name="forgot_pwd_new_step_2">新密码</string>
+    <string name="forgot_pwd_new_hint_step_2">请输入新密码</string>
+    <string name="forgot_pwd_confirm_step_2">确认新密码</string>
+    <string name="forgot_pwd_confirm_hint_step_2">确认新密码</string>
+    <string name="pwd_no_confirm">两次密码输入不一致</string>
+    <string name="forgot_pwd_tips">登录密码为6&#8211;16位字符，包括数字和字母</string>
+    <string name="forgot_pwd_confirm_update_step_2">完成</string>
+    <string name="forgot_pwd_person_first">亲，请先填写个人信息哦~</string>
+
 
 
     <!--测试数据-->

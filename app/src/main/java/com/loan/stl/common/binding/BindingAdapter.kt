@@ -22,6 +22,33 @@ import com.loan.stl.utils.RegularUtil
  */
 class BindingAdapter{
     companion object{
+
+        /**
+         * 设置view是否显示
+         */
+        @BindingAdapter("visibility")
+        @JvmStatic
+        fun viewVisibility(view: View, visible: Boolean) {
+            if (visible) {
+                view.visibility = View.VISIBLE
+            } else {
+                view.visibility = View.GONE
+            }
+        }
+
+        /**
+         * 设置view是否显示
+         */
+        @BindingAdapter("invisibility")
+        @JvmStatic
+        fun viewInVisibility(view: View, visible: Boolean) {
+            if (visible) {
+                view.visibility = View.VISIBLE
+            } else {
+                view.visibility = View.INVISIBLE
+            }
+        }
+
         @BindingAdapter("visibility")
         @JvmStatic
         fun visibility(view: View,text:String?){

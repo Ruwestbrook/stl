@@ -1,8 +1,13 @@
 package com.loan.stl.module.mine.viewControl
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.util.Log
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.alibaba.android.arouter.launcher.ARouter
 import com.authreal.api.AuthBuilder
 import com.authreal.api.OnResultCallListener
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder
@@ -12,18 +17,22 @@ import com.loan.stl.R
 import com.loan.stl.common.BaseParams
 import com.loan.stl.common.Constant
 import com.loan.stl.common.DicKey
+import com.loan.stl.common.RequestResultCode
 import com.loan.stl.module.mine.dataModel.receive.*
+import com.loan.stl.module.mine.ui.activity.CreditPersonActivity
 import com.loan.stl.module.mine.viewModel.CreditPersonVM
 import com.loan.stl.network.HttpClient
 import com.loan.stl.network.NetworkUtil
 import com.loan.stl.network.ResponseCallback
 import com.loan.stl.network.api.MineService
 import com.loan.stl.network.entity.HttpResult
+import com.loan.stl.router.RouterUrl
 import com.loan.stl.utils.ToastUtils
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
 import com.loan.stl.utils.FileUtil
+import com.loan.stl.utils.Util
 import retrofit2.Call
 import retrofit2.Response
 
@@ -34,7 +43,12 @@ author: russell
 time: 2019-07-15:18:20
 describe：
  */
-class CreditControl {
+class CreditControl(var activity:CreditPersonActivity) {
+    var permissions= arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS,
+        Manifest.permission.BLUETOOTH_ADMIN,
+        Manifest.permission.BLUETOOTH)
     var creditPersonVM=CreditPersonVM()
     init {
            reqData()
@@ -253,4 +267,44 @@ class CreditControl {
         pvOptions.setPicker(education)
         pvOptions.show()
     }
+
+    /*
+    打开高德地图定位
+     */
+    fun openMap(view: View){
+
+        if(!checkPermission()){
+            requestPermissions(true)
+            return
+        }
+        openMap()
+    }
+
+    fun openMap(){
+        ARouter.getInstance().build(RouterUrl.ACTIVITY_MAP).
+            navigation(activity,RequestResultCode.REQ_MAP_CODE)
+
+    }
+
+
+    fun checkPermission():Boolean{
+        var flag=true
+        permissions.forEach {
+            if( ContextCompat.checkSelfPermission(activity, it) !=
+                PackageManager.PERMISSION_GRANTED)
+                flag=false
+        }
+
+        return flag
+
+    }
+
+
+    fun requestPermissions(flag:Boolean){
+        val code=if(flag) RequestResultCode.REQ_MAP_CODE else RequestResultCode.REQ_LOCATION_CODE
+        ActivityCompat.requestPermissions(
+            activity,
+            permissions, code)
+    }
+
 }

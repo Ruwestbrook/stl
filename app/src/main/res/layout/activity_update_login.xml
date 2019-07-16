@@ -75,7 +75,11 @@
             android:textSize="@dimen/text_size_h1" />
 
         <LinearLayout
-            style="@style/normalLeftRightMargin"
+
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -98,6 +102,7 @@
                 android:background="@color/white"
                 android:hint="@string/settings_pwd_pwd_hint"
                 android:maxLength="16"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textColor="@color/text_black"
@@ -108,7 +113,10 @@
 
 
         <LinearLayout
-            style="@style/normalLeftRightMargin"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:layout_marginTop="2dp"
             android:background="@color/white"
             android:layout_width="match_parent"
@@ -128,6 +136,7 @@
             <EditText
                 style="@style/padding_edit"
                 android:layout_weight="3"
+                android:layout_width="0dp"
                 android:background="@color/white"
                 android:hint="@string/settings_pwd_new_pwd_hint"
                 android:maxLength="16"
@@ -141,7 +150,10 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/normalLeftRightMargin"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:layout_marginTop="2dp"
             android:background="@color/white"
             android:layout_width="match_parent"
@@ -164,6 +176,7 @@
                 android:background="@color/white"
                 android:hint="@string/settings_pwd_confirm_pwd_hint"
                 android:maxLength="16"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:text="@={ctrl.loginVM.repeatPass}"
