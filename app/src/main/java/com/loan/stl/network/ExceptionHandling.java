@@ -10,6 +10,7 @@ import com.loan.stl.module.user.dataModel.receive.OauthTokenMo;
 import com.loan.stl.module.user.ui.activity.UserLogic;
 import com.loan.stl.network.api.UserService;
 import com.loan.stl.network.entity.HttpResult;
+import com.loan.stl.utils.DialogUtils;
 import com.loan.stl.utils.SPreferences.SharedInfo;
 import com.loan.stl.utils.ToastUtils;
 import retrofit2.Call;
@@ -51,31 +52,24 @@ final class ExceptionHandling {
             case AppResultCode.TOKEN_NOT_EXIT:
                 if(!isToast) {
                     isToast = true;
-                    SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(ActivityManage.peek(),SweetAlertDialog.ERROR_TYPE)
-                            .setContentText(ActivityManage.peek().getResources().getString(R.string.user_login_two))
-                            .setCancelText("取消")
-                            .setTitleText("账号错误！")
-                            .setConfirmText(ActivityManage.peek().getResources().getString(R.string.user_login_reset))
-                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    isToast = false;
-                                    UserLogic.signOut();
-                                    goHome();
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            })
-                            .setCancelClickListener( new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                    isToast = false;
-                                    UserLogic.signOut();
-                                    goHome();
-                                    sweetAlertDialog.dismissWithAnimation();
-                                }
-                            });
-                    sweetAlertDialog.setCancelable(false);
-                    sweetAlertDialog.show();
+                    DialogUtils.showDialog(ActivityManage.peek(), R.string.user_login_reset, R.string.user_login_two, new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            isToast = false;
+                            UserLogic.signOut();
+                            goHome();
+                            sweetAlertDialog.dismissWithAnimation();
+                        }
+                    }, new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            isToast = false;
+                            UserLogic.signOut();
+                            goLogin();
+                            sweetAlertDialog.dismissWithAnimation();
+                        }
+                    });
+
                 }
                 break;
 
@@ -85,6 +79,9 @@ final class ExceptionHandling {
         if (result.getCode() != 410 && result.getCode() != 413 && result.getCode() != 412 && result.getCode() != 411) {
             ToastUtils.toast(result.getMsg());
         }
+    }
+
+    private static void goLogin() {
     }
 
     private static void goHome() {

@@ -7,6 +7,8 @@ import com.loan.stl.module.mine.dataModel.submit.PhoneInfoSub
 import com.loan.stl.module.user.dataModel.receive.InfoRec
 import com.loan.stl.module.user.dataModel.receive.PassRec
 import com.loan.stl.module.user.dataModel.receive.TradeStateRec
+import com.loan.stl.module.user.dataModel.submit.ForgotPaySub
+import com.loan.stl.module.user.dataModel.submit.IdeaSub
 import com.loan.stl.module.user.dataModel.submit.UpdatePwdSub
 import com.loan.stl.network.entity.HttpResult
 import retrofit2.Call
@@ -202,9 +204,9 @@ interface MineService {
     @POST("act/user/changeLoginPwd.htm")
     fun updatePwd(@Body sub: UpdatePwdSub): Call<HttpResult<Any>>
 
-//    /** 找回交易密码身份验证  */
-//    @POST("act/user/validateUser.htm")
-//    abstract fun validateUser(@Body sub: ForgotPaySub): Call<HttpResult<PassRec>>
+    /** 找回交易密码身份验证  */
+    @POST("act/user/validateUser.htm")
+    fun validateUser(@Body sub: ForgotPaySub): Call<HttpResult<PassRec>>
 
     /** 修改交易密码  */
     @POST("act/user/changeTradePwd.htm")
@@ -265,11 +267,11 @@ interface MineService {
 //     */
 //    @POST("act/mine/profitCashLog/page.htm")
 //    abstract fun profitCashLog(@Body pageMo: PageMo): Call<HttpResult<ListData<InviteWithdrawItemRec>>>
-//
-//    /** 意见反馈  */
-//    @POST("act/mine/opinion/submit.htm")
-//    abstract fun opinion(@Body sub: IdeaSub): Call<HttpResult>
-//
+
+    /** 意见反馈  */
+    @POST("act/mine/opinion/submit.htm")
+     fun opinion(@Body sub: IdeaSub): Call<HttpResult<Any>>
+
 //    /** 通话记录  */
 //    @POST("act/mine/userInfo/records.htm")
 //    abstract fun records(@Body sub: PhoneInfoSub): Call<HttpResult>

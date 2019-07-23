@@ -7,6 +7,7 @@ import com.loan.stl.LoanApplication.Companion.context
 import com.loan.stl.R
 import com.loan.stl.common.Constant
 import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
+import com.loan.stl.utils.DialogUtils
 import com.loan.stl.utils.SPreferences.SharedInfo
 
 /**
@@ -49,7 +50,7 @@ class UserLogic {
         // 标记未登录
         SharedInfo.getInstance().remove(Constant.IS_LAND)
         // 删除保存的OauthToken信息
-
+        SharedInfo.getInstance().remove(tokenMo::class.java)
     }
 
     /**
@@ -84,20 +85,21 @@ class UserLogic {
     fun signOutToLogin(activity: Activity) {
 
 
-        val sweetAlertDialog = SweetAlertDialog(activity)
-            .setContentText(context.getString(R.string.user_login_out))
-            .setConfirmText("确定")
-            .setCancelClickListener {
-                signOut()
-                //到登录页面
-                activity.finish()
-            }
-        sweetAlertDialog.setCancelable(false)
-        sweetAlertDialog.show()
+        DialogUtils.showDialog(activity, R.string.user_login_out) {
+            signOut()
+            goLogin()
+            activity.finish()
+        }
 
     }
 
-    /**
+        //登录页面
+        @JvmStatic
+        private  fun goLogin() {
+
+        }
+
+        /**
      * 是否已经登录
      */
     @JvmStatic

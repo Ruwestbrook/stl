@@ -1,143 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/bg_color_f8"
-    android:layout_height="match_parent"
-    tools:context=".module.user.ui.activity.ForgetPayActivity">
-    <include layout="@layout/title"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-
-    <View
-        style="@style/normalLeftRightMargin"
-        android:layout_width="match_parent"
-        android:background="@color/bg_color_f8"
-        android:layout_height="20dp"/>
+    <data>
+            <variable
+                name="ctrl"
+                type="com.loan.stl.module.user.viewControl.ForgetPayControl" />
+    </data>
 
     <LinearLayout
-        style="@style/normalLeftRightMargin"
-        android:background="@color/white"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:text="@string/settings_forgot_pay_phone"
-            android:textSize="@dimen/text_size_h4"
-            android:gravity="center|left"
-            android:textColor="@color/text_color_34"
-            android:layout_height="match_parent" />
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="5"
-            android:hint="@string/settings_forgot_pay_phone_tip"
-            style="@style/padding_edit"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <View
-        style="@style/normalLeftRightMargin"
-        android:layout_width="match_parent"
+        android:orientation="vertical"
         android:background="@color/bg_color_f8"
-        android:layout_height="2dp"/>
+        android:layout_height="match_parent"
+        tools:context=".module.user.ui.activity.ForgetPayActivity">
 
-    <LinearLayout
-        style="@style/normalLeftRightMargin"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:text="@string/settings_forgot_pay_name"
-            android:textSize="@dimen/text_size_h4"
-            android:gravity="center|left"
-            android:textColor="@color/text_color_34"
-            android:layout_height="match_parent" />
+        <include layout="@layout/title" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="5"
-            android:hint="@string/settings_forgot_pay_name_tip"
-            style="@style/padding_edit"
-            android:layout_height="match_parent" />
+
+        <View
+            style="@style/normalLeftRightMargin"
+            android:layout_width="match_parent"
+            android:background="@color/bg_color_f8"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            style="@style/normalLeftRightMargin"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/settings_forgot_pay_phone"
+                android:textSize="@dimen/text_size_h4"
+                android:gravity="center|left"
+                android:textColor="@color/text_color_34"
+                android:layout_height="match_parent"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:layout_width="0dp"
+                tools:ignore="Autofill,TextFields"
+                android:layout_weight="5"
+                android:text="@={ctrl.forgetPayVM.phone}"
+                android:hint="@string/settings_forgot_pay_phone_tip"
+                style="@style/padding_edit"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            style="@style/normalLeftRightMargin"
+            android:layout_width="match_parent"
+            android:background="@color/bg_color_f8"
+            android:layout_height="@dimen/dividing_line" />
+
+        <LinearLayout
+            style="@style/normalLeftRightMargin"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/settings_forgot_pay_name"
+                android:textSize="@dimen/text_size_h4"
+                android:gravity="center|left"
+                android:textColor="@color/text_color_34"
+                android:layout_height="match_parent"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:text="@={ctrl.forgetPayVM.name}"
+                android:hint="@string/settings_forgot_pay_name_tip"
+                style="@style/padding_edit"
+                android:layout_height="match_parent"
+                tools:ignore="Autofill,TextFields" />
+        </LinearLayout>
+
+        <View
+            style="@style/normalLeftRightMargin"
+            android:layout_width="match_parent"
+            android:background="@color/bg_color_f8"
+            android:layout_height="@dimen/dividing_line" />
+
+        <LinearLayout
+            style="@style/normalLeftRightMargin"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/settings_forgot_pay_no"
+                android:textSize="@dimen/text_size_h4"
+                android:gravity="center|left"
+                android:textColor="@color/text_color_34"
+                android:layout_height="match_parent"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:text="@={ctrl.forgetPayVM.no}"
+                android:hint="@string/settings_forgot_pay_no_tip"
+                style="@style/padding_edit"
+                tools:ignore="Autofill,TextFields"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            style="@style/normalLeftRightMargin"
+            android:layout_width="match_parent"
+            android:background="@color/bg_color_f8"
+            android:layout_height="@dimen/dividing_line" />
+
+        <LinearLayout
+            android:background="@color/white"
+            style="@style/normalLeftRightMargin"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:text="@string/settings_forgot_pay_code"
+                android:textSize="@dimen/text_size_h4"
+                android:gravity="center|left"
+                android:textColor="@color/text_color_34"
+                android:layout_height="match_parent"
+                tools:ignore="RtlHardcoded" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:text="@={ctrl.forgetPayVM.code}"
+                android:hint="@string/settings_forgot_pay_code_tip"
+                style="@style/padding_edit"
+                tools:ignore="Autofill,TextFields"
+                android:layout_height="match_parent" />
+
+            <com.loan.custom.TimeButton
+                android:text="@string/bank_verify_send_code"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="@{ctrl::getCodeClick}"
+                android:id="@+id/time_button"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            style="@style/button_style"
+            android:onClick="@{ctrl::submit}"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/next_step"
+            android:layout_marginTop="25dp"
+            android:layout_height="44dp" />
     </LinearLayout>
-    <View
-        style="@style/normalLeftRightMargin"
-        android:layout_width="match_parent"
-        android:background="@color/bg_color_f8"
-        android:layout_height="2dp"/>
-
-    <LinearLayout
-        style="@style/normalLeftRightMargin"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:text="@string/settings_forgot_pay_no"
-            android:textSize="@dimen/text_size_h4"
-            android:gravity="center|left"
-            android:textColor="@color/text_color_34"
-            android:layout_height="match_parent" />
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="5"
-            android:hint="@string/settings_forgot_pay_no_tip"
-            style="@style/padding_edit"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-    <View
-        style="@style/normalLeftRightMargin"
-        android:layout_width="match_parent"
-        android:background="@color/bg_color_f8"
-        android:layout_height="2dp"/>
-
-    <LinearLayout
-        style="@style/normalLeftRightMargin"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:text="@string/settings_forgot_pay_code"
-            android:textSize="@dimen/text_size_h4"
-            android:gravity="center|left"
-            android:textColor="@color/text_color_34"
-            android:layout_height="match_parent" />
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:text="@={ctrl.forgetLoginVM.code}"
-            android:hint="@string/settings_forgot_pay_code_tip"
-            style="@style/padding_edit"
-            android:layout_height="match_parent" />
-
-        <com.loan.custom.TimeButton
-            android:text="@string/bank_verify_send_code"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        style="@style/button_style"
-        android:onClick="@{ctrl::nextStep}"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="@string/next_step"
-        android:layout_marginTop="25dp"
-        android:layout_height="44dp" />
-</LinearLayout>
+</layout>

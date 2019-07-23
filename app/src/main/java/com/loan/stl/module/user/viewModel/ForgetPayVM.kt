@@ -36,6 +36,9 @@ class ForgetPayVM  : BaseObservable() {
             checkInput()
             notifyPropertyChanged(BR.name)
         }
+    /*
+    身份证号码
+     */
     @get:Bindable
     var no: String? = null
         set(value) {

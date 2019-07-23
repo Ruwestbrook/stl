@@ -9,15 +9,54 @@
     </data>
 
     <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         android:background="@color/bg_color_f8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".module.user.ui.activity.ForgetLoginActivity">
 
-        <include layout="@layout/title" />
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/app_base_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{ctrl.forgetLoginVM.title}"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:id="@+id/title"
+                android:layout_height="wrap_content" />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/back_text"
+                style="@style/white_12"
+                android:onClick="finishPage"
+                android:id="@+id/back_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@drawable/icon_white_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_white_back"
+                android:layout_marginStart="15dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
+            app:visibility="@{ctrl.forgetLoginVM.first}"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:id="@+id/first"
@@ -54,7 +93,7 @@
                 style="@style/normalLeftRightMargin"
                 android:layout_width="match_parent"
                 android:background="@color/bg_color_f8"
-                android:layout_height="2dp"/>
+                android:layout_height="@dimen/dividing_line"/>
 
             <LinearLayout
                 style="@style/normalLeftRightMargin"
@@ -74,6 +113,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_weight="3"
+                    android:enabled="@{ctrl.forgetLoginVM.codeEnable}"
                     android:text="@={ctrl.forgetLoginVM.code}"
                     android:hint="@string/settings_forgot_pay_code_tip"
                     style="@style/padding_edit"
@@ -82,11 +122,14 @@
                 <com.loan.custom.TimeButton
                     android:layout_width="0dp"
                     android:text="@string/bank_verify_send_code"
+                    android:id="@+id/timeButton"
+                    android:onClick="@{ctrl::getCodeClick}"
                     android:layout_weight="2"
                     android:layout_height="match_parent" />
             </LinearLayout>
 
             <Button
+                android:enabled="@{ctrl.forgetLoginVM.enable}"
                 android:layout_width="match_parent"
                 style="@style/button_style"
                 android:onClick="@{ctrl::nextStep}"
@@ -99,6 +142,7 @@
 
 
         <LinearLayout
+            app:visibility="@{ctrl.forgetLoginVM.second}"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:id="@+id/second"
@@ -124,6 +168,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_weight="5"
+                    android:inputType="textPassword"
                     android:hint="@string/settings_pwd_new_pwd_hint"
                     style="@style/padding_edit"
                     android:text="@={ctrl.forgetLoginVM.pwd}"
@@ -134,7 +179,7 @@
                 style="@style/normalLeftRightMargin"
                 android:layout_width="match_parent"
                 android:background="@color/bg_color_f8"
-                android:layout_height="2dp"/>
+                android:layout_height="@dimen/dividing_line"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -157,6 +202,7 @@
                     android:text="@={ctrl.forgetLoginVM.confirmPwd}"
                     android:hint="@string/settings_pwd_confirm_pwd_hint"
                     style="@style/padding_edit"
+                    android:inputType="textPassword"
                     android:layout_height="match_parent" />
             </LinearLayout>
 
@@ -169,6 +215,7 @@
                 android:textColor="@color/text_grey"
                 android:textSize="@dimen/text_size_h5" />
             <Button
+                android:enabled="@{ctrl.forgetLoginVM.updateEnable}"
                 android:layout_width="match_parent"
                 style="@style/button_style"
                 android:onClick="@{ctrl::submit}"

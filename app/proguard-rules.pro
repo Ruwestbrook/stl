@@ -173,3 +173,6 @@
 -keep class com.hotvision.** { *; }
 -keep class com.google.gson.stream.** { *; }
 #有盾ORC 结束#
+
+
+-keep class com.bigkoo.pickerview.** { *; }

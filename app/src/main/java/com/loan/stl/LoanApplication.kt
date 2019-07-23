@@ -4,13 +4,17 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.location.LocationManager
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
+import com.amap.api.location.AMapLocation
+import com.amap.api.location.AMapLocationClient
+import com.amap.api.location.AMapLocationClientOption
+import com.amap.api.location.AMapLocationListener
 import com.loan.stl.common.ActivityManage
 import com.loan.stl.common.AppConfig
 import com.loan.stl.common.BaseParams
 import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
-import com.loan.stl.utils.LogUtils
 import com.loan.stl.utils.SPreferences.SharedInfo
 
 /**
@@ -18,14 +22,127 @@ author: russell
 time: 2019-07-12:10:38
 describe：
  */
-class LoanApplication :Application() {
+class LoanApplication :Application(), AMapLocationListener {
+    override fun onLocationChanged(amapLocation: AMapLocation?) {
+        if (amapLocation != null) {
+            if (amapLocation.errorCode == 0) {
+                district = amapLocation.district
+                //                address = amapLocation.getProvince() + "," + amapLocation.getCity() + "," + district + "," + amapLocation.getStreet();
+                address = amapLocation.address
+                locAddress = amapLocation.city + district + amapLocation.street + amapLocation.streetNum
+                locCity = amapLocation.city
+                lon = amapLocation.longitude
+                lat = amapLocation.latitude
 
+                if (locCity != null && "" != locCity) {
+                    if (!openGps)
+                        mLocationClient!!.stopLocation()
+                    if (onPosChanged != null)
+                        onPosChanged!!.changed(amapLocation)
+                } else {
+                    locCount++
+                    if (locCount >= 4) {
+                        if (!openGps)
+                            mLocationClient!!.stopLocation()
+                        if (onPosChanged != null)
+                            onPosChanged!!.changed(amapLocation)
+                    }
+                }
+            } else {
+                if (onPosChanged != null)
+                    onPosChanged!!.changed(amapLocation)
+            }
+        }
+    }
 
 
     companion object{
         @SuppressLint("StaticFieldLeak")
         @JvmStatic
         lateinit var context:Context
+
+        @JvmStatic
+        fun setLocOption(time: Int) {
+            val option = AMapLocationClientOption()
+            option.locationMode = AMapLocationClientOption.AMapLocationMode.Battery_Saving// 设置定位模式
+            option.interval = time.toLong()// 设置发起定位请求的间隔时间为5000ms
+            option.isNeedAddress = true// 返回的定位结果包含地址信息
+            //		option.setNeedDeviceDirect(true);// 返回的定位结果包含手机机头的方向
+            //设置为高精度定位模式
+            option.locationMode = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy
+            mLocationClient?.setLocationOption(option)
+        }
+
+        /*********************** 高德地图定位  */
+        @SuppressLint("StaticFieldLeak")
+        var mLocationClient: AMapLocationClient? = null
+        private var locCity: String? = ""
+        private var district = ""
+        var address = ""
+        var lat = 0.0
+        var lon = 0.0
+        private var openGps = false
+        private var locCount = 0
+
+        /***********
+         * 打开GPS
+         *
+         * @param lisenter
+         * @param status
+         * 表示是否进行GPS跟踪
+         */
+        @JvmStatic
+        fun openGps(lisenter: OnPosChanged, status: Boolean) {
+            locCount = 0
+            onPosChanged = lisenter
+            openGps = status
+            setLocOption(5000)
+            mLocationClient!!.startLocation()
+        }
+
+        /**
+         * 判断GPS是否开启
+         */
+        @JvmStatic
+        fun isOpen(context: Context): Boolean {
+            val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            // 通过GPS卫星定位，定位级别可以精确到街（通过24颗卫星定位，在室外和空旷的地方定位准确、速度快）
+            // 通过WLAN或移动网络(3G/2G)确定的位置（也称作AGPS，辅助GPS定位。主要用于在室内或遮盖物（建筑群或茂密的深林等）密集的地方定位）
+            //        boolean network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+        }
+
+        /**********
+         * 位置回调
+         */
+        internal var onPosChanged: OnPosChanged? = null
+
+        @JvmStatic
+        fun setOnPosChanged(callback: OnPosChanged) {
+            locCount = 0
+            onPosChanged = callback
+        }
+
+        interface OnPosChanged {
+            fun changed(location: AMapLocation)
+        }
+
+        /**
+         * 定位成功后回调函数
+         */
+
+
+
+        private var locAddress = ""
+
+        fun getLocAddress(): String {
+            return locAddress
+        }
+
+        fun closeGps() {
+            mLocationClient!!.stopLocation()
+        }
 
     }
     override fun onCreate() {
@@ -37,7 +154,6 @@ class LoanApplication :Application() {
         closeAndroidPDialog()
         registerActivity()
         basicInit()
-        testLogin()
     }
 
     private fun basicInit() {
@@ -110,15 +226,5 @@ class LoanApplication :Application() {
 
     }
 
-    private fun testLogin(){
 
-        var oauthTokenMo=OauthTokenMo("c6be32c9564c4a339565a367ea4d3c56",
-             "15757071829",
-            "0caed270a77343a2a6a7ffcbbbd14a9f",
-            "4074",
-            "",
-            ""
-            )
-        SharedInfo.getInstance().saveEntity(oauthTokenMo)
-    }
 }

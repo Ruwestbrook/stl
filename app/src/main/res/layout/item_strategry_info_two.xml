@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:maxLines="2"
+        style="@style/text_34_15"
+        android:text="@string/test_strategy_title"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <ImageView
+            android:src="@drawable/test_hot_pic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:src="@drawable/test_hot_pic"
+            android:layout_width="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp" />
+        <ImageView
+            android:src="@drawable/test_hot_pic"
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

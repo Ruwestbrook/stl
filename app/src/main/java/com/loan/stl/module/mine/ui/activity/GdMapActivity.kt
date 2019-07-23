@@ -16,10 +16,35 @@ describe：高德地图定位
  */
 @Route(path = RouterUrl.ACTIVITY_MAP)
 class GdMapActivity : AppCompatActivity() {
-
+    lateinit var binding:ActivityGdMapBinding
+    private lateinit var viewCtrl: GdMapCtrl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      var binding= DataBindingUtil.setContentView<ActivityGdMapBinding>(this,R.layout.activity_gd_map)
-        binding.ctrl=GdMapCtrl(binding,this)
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_gd_map)
+        binding.map.onCreate(savedInstanceState)
+        viewCtrl=GdMapCtrl(binding,this)
+        binding.ctrl=viewCtrl
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.map.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.map.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.map.onPause()
+        viewCtrl.deactivate()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.map.onSaveInstanceState(outState)
     }
 }

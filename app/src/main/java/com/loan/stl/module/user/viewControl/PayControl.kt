@@ -17,6 +17,7 @@ import com.loan.stl.network.HttpClient
 import com.loan.stl.network.ResponseCallback
 import com.loan.stl.network.api.MineService
 import com.loan.stl.network.entity.HttpResult
+import com.loan.stl.utils.DialogUtils
 import com.loan.stl.utils.SPreferences.SharedInfo
 import com.loan.stl.utils.TextUtil
 import retrofit2.Call
@@ -40,8 +41,6 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
         initView()
     }
 
-   
-  
 
     fun setPayType(payType: Int) {
         this.payType = payType
@@ -68,7 +67,7 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
                         reqUpdatePwd()
                     }
                 } else {
-                    val dialog = SweetAlertDialog(ActivityManage.peek())
+                    val dialog = SweetAlertDialog(ActivityManage.peek(), SweetAlertDialog.NORMAL_TYPE)
                         .setContentText(context.resources.getString(R.string.seetings_pwd_tips))
                         .setCancelText(context.resources.getString(R.string.seetings_pwd_reset))
                         .setConfirmText(context.resources.getString(R.string.seetings_pwd_again))
@@ -106,17 +105,16 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
                     ActivityManage.pop()
                 } else {
 
-                    val alertDialog = SweetAlertDialog(ActivityManage.peek())
-                        .setContentText( context.getString(
-                            R.string.settints_pay_success))
-                        .setConfirmText(context.getString(R.string.dialog_confirm))
-                        .setConfirmClickListener { sweetAlertDialog ->
+                    DialogUtils.showDialog(
+                        ActivityManage.peek(),
+                        SweetAlertDialog.SUCCESS_TYPE,
+                        context.resources.getString(R.string.settints_pay_success),
+                        { sweetAlertDialog ->
                             sweetAlertDialog.dismiss()
                             ActivityManage.pop()
-                        }
-                        .showCancelButton(false)
-                    alertDialog.setCancelable(false)
-                    alertDialog.show()
+                        },
+                        false
+                    )
 
                 }
             }
@@ -125,27 +123,31 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
 
     //修改交易密码
     private fun reqUpdatePwd() {
-        val call = HttpClient.getService(MineService::class.java).updatePayPwd(UpdatePwdSub(newpwd, oldpwd))
+        val updatePwdSub=UpdatePwdSub()
+        updatePwdSub.oldPwd=oldpwd
+        updatePwdSub.newPwd=newpwd
+        val call = HttpClient.getService(MineService::class.java).updatePayPwd(updatePwdSub)
         call.enqueue(object : ResponseCallback<HttpResult<Any>>() {
            override fun onSuccess(call: Call<HttpResult<Any>>, response: Response<HttpResult<Any>>) {
-               val alertDialog = SweetAlertDialog(ActivityManage.peek())
-                   .setContentText( context.getString(
-                       R.string.settints_pay_success))
-                   .setConfirmText(context.getString(R.string.dialog_confirm))
-                   .setConfirmClickListener { sweetAlertDialog ->
+               DialogUtils.showDialog(
+                   ActivityManage.peek(),
+                   SweetAlertDialog.SUCCESS_TYPE,
+                   context.resources.getString(R.string.settints_pay_success),
+                   { sweetAlertDialog ->
                        sweetAlertDialog.dismiss()
                        ActivityManage.pop()
-                   }
-                   .showCancelButton(false)
-               alertDialog.setCancelable(false)
-               alertDialog.show()
+                   },
+                   false
+               )
             }
         })
     }
 
     //校验交易密码
     private fun reqCheckPwd(pwd: String) {
-        val call = HttpClient.getService(MineService::class.java).validateTradePwd(UpdatePwdSub(pwd))
+        val updatePwdSub=UpdatePwdSub()
+        updatePwdSub.tradePwd=pwd
+        val call = HttpClient.getService(MineService::class.java).validateTradePwd(updatePwdSub)
         call.enqueue(object : ResponseCallback<HttpResult<PassRec>>() {
             override  fun onSuccess(call: Call<HttpResult<PassRec>>, response: Response<HttpResult<PassRec>>) {
                 if (response.body()!!.data.pass==true) {
@@ -155,17 +157,18 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
                     tips.set(context.getString(R.string.settints_pay_update_new_tips))
                     binding.pwd.setText("")
                 } else {
-                    val alertDialog = SweetAlertDialog(ActivityManage.peek())
-                        .setContentText( context.getString(
-                            R.string.settints_pay_update_old_pwd_error))
-                        .setConfirmText(context.getString(R.string.dialog_confirm))
-                        .setConfirmClickListener { sweetAlertDialog ->
+                    DialogUtils.showDialog(ActivityManage.peek(),
+                        SweetAlertDialog.ERROR_TYPE,
+                        context.resources.getString(
+                            R.string
+                                .settints_pay_update_old_pwd_error
+                        ),
+                        { sweetAlertDialog ->
+                            binding.pwd.setText("")
                             sweetAlertDialog.dismiss()
-                            ActivityManage.pop()
-                        }
-                        .showCancelButton(false)
-                    alertDialog.setCancelable(false)
-                    alertDialog.show()
+                        },
+                        false
+                    )
                 }
             }
         })
@@ -178,17 +181,16 @@ class PayControl(val binding: ActivityUpdatePayBinding, types: Int,val context: 
         val call = HttpClient.getService(MineService::class.java).resetTradePwd(sub)
         call.enqueue(object : ResponseCallback<HttpResult<Any>>() {
             override  fun onSuccess(call: Call<HttpResult<Any>>, response: Response<HttpResult<Any>>) {
-                val alertDialog = SweetAlertDialog(ActivityManage.peek())
-                    .setContentText( context.getString(
-                        R.string.settints_pay_success))
-                    .setConfirmText(context.getString(R.string.dialog_confirm))
-                    .setConfirmClickListener { sweetAlertDialog ->
+                DialogUtils.showDialog(
+                    ActivityManage.peek(),
+                    SweetAlertDialog.SUCCESS_TYPE,
+                    context.resources.getString(R.string.settints_pay_success),
+                    { sweetAlertDialog ->
                         sweetAlertDialog.dismiss()
                         ActivityManage.pop()
-                    }
-                    .showCancelButton(false)
-                alertDialog.setCancelable(false)
-                alertDialog.show()
+                    },
+                    false
+                )
             }
 
         })

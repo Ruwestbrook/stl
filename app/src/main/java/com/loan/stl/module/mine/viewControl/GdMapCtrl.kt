@@ -1,13 +1,18 @@
 package com.loan.stl.module.mine.viewControl
 
-
-
-
 import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
@@ -21,25 +26,38 @@ import com.amap.api.maps2d.model.BitmapDescriptorFactory
 import com.amap.api.maps2d.model.CameraPosition
 import com.amap.api.maps2d.model.LatLng
 import com.amap.api.maps2d.model.MyLocationStyle
+import com.amap.api.services.core.LatLonPoint
 import com.amap.api.services.core.PoiItem
 import com.amap.api.services.poisearch.PoiResult
 import com.amap.api.services.poisearch.PoiSearch
-import java.util.ArrayList
-import androidx.fragment.app.FragmentTransaction
+import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+import com.loan.stl.BR
+import com.loan.stl.LoanApplication
 import com.loan.stl.R
+import com.loan.stl.common.BundleKeys
+import com.loan.stl.common.CommonControl
+import com.loan.stl.common.SwipeListener
+import com.loan.stl.common.binding.BaseRecyclerViewAdapter
+import com.loan.stl.common.binding.PositionClick
 import com.loan.stl.databinding.ActivityGdMapBinding
-import com.loan.stl.utils.LogUtils
+import com.loan.stl.module.mine.ui.activity.GdMapActivity
+import com.loan.stl.module.mine.ui.fragment.GdSearchFrag
+import com.loan.stl.module.mine.viewModel.PioSearchItemVM
+import com.loan.stl.utils.Util
+
+import java.util.ArrayList
 
 /**
-author: russell
-time: 2019-07-16:16:38
-describe：
+ * Author: Chenming
+ * E-mail: cm1@erongdu.com
+ * Date: 2017/2/23 下午2:26
+ *
+ *
+ * Description: 高德地图（
  */
-
-class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  LocationSource, AMapLocationListener,
+class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) : CommonControl(), LocationSource, AMapLocationListener,
     AMap.OnCameraChangeListener {
     private var aMap: AMap? = null
-    private val mapView: MapView? = null
     private var mListener: LocationSource.OnLocationChangedListener? = null
     private var mlocationClient: AMapLocationClient? = null
     private var mLocationOption: AMapLocationClientOption? = null
@@ -48,23 +66,87 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
     private var pageCount = 20
     private val pageSize = 10
     private var cityCode = ""
-    internal lateinit var transaction: FragmentTransaction
+    private var gdSearchFrag: GdSearchFrag?=null
+    private var transaction : FragmentTransaction?=null
     private val searchList = ArrayList<PoiItem>()
     private val firstList = true
 
     init {
         aMap=binding.map.map
-        setUpMap()
-        aMap?.setOnCameraChangeListener(this)
+        setSwipeLayout(binding.layouts)
+        if (aMap == null) {
+            aMap = binding.map.map
+            setUpMap()
+            aMap!!.setOnCameraChangeListener(this)
+            binding.swipeTarget.layoutManager=LinearLayoutManager(activity)
+            val adapter=BaseRecyclerViewAdapter(searchList, BR.item,R.layout.item_poi_layout)
+            binding.swipeTarget.adapter=adapter
+            adapter.setPositionClick(object :PositionClick{
+                override fun click(view: View, position: Int) {
+                        val  intent=Intent()
+                       intent.putExtra(BundleKeys.DATA, searchList[position])
+                       activity.setResult(RESULT_OK, intent)
+                       activity.finish()
+                }
+
+            })
+
+        }
+
+        listener.set(object : SwipeListener() {
+          override  fun swipeInit(swipeLayout: SwipeToLoadLayout) {
+              setSwipeLayout(swipeLayout)
+              getSwipeLayout()?.isRefreshing = false
+              getSwipeLayout()?.isRefreshEnabled = false
+            }
+
+            override  fun refresh() {
+
+            }
+
+            override fun loadMore() {
+                poiSearch(page++)
+            }
+        })
     }
 
     private fun setTitleVisibility() {
+        if (binding.tvSearch.visibility == View.VISIBLE) {
+            binding.tvSearch.visibility = View.GONE
+            binding.tvSearchBtn.visibility = View.VISIBLE
+            binding.etSearch.visibility = View.VISIBLE
+            binding.container.visibility = View.VISIBLE
+            binding.etSearch.requestFocus()
+                        gdSearchFrag = GdSearchFrag.getInstance(cityCode);
+                        transaction = activity.supportFragmentManager.beginTransaction()
+                        transaction?.add(binding.container.id, gdSearchFrag!!)
+                        transaction?.addToBackStack(null)
+                        transaction?.commitAllowingStateLoss()
+        } else {
+            binding.tvSearch.visibility = View.VISIBLE
+            binding.tvSearchBtn.visibility = View.GONE
+            binding.etSearch.visibility = View.GONE
+            binding.container.visibility = View.GONE
 
+            transaction = activity.supportFragmentManager.beginTransaction()
+            gdSearchFrag?.let { transaction?.remove(it) }
+            transaction?.commitAllowingStateLoss()
+        }
     }
 
     /** 返回事件  */
     fun onBackPressed(view: View) {
-
+        if (binding.tvSearch.visibility == View.VISIBLE) {
+            activity.finish()
+        } else {
+            binding.tvSearch.visibility = View.VISIBLE
+            binding.tvSearchBtn.visibility = View.GONE
+            binding.etSearch.visibility = View.GONE
+            binding.container.visibility = View.GONE
+            //            transaction = ((FragmentActivity) activity).getSupportFragmentManager().beginTransaction();
+            //            transaction.remove(gdSearchFrag);
+            //            transaction.commitAllowingStateLoss();
+        }
     }
 
     /** 搜索按钮  */
@@ -118,7 +200,8 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
 
             override fun afterTextChanged(editable: Editable) {
-               // gdSearchFrag.viewCtrl.poiSearch(0, editable.toString())
+
+              //  gdSearchFrag?.viewCtrl.poiSearch(0, editable.toString());
             }
         })
     }
@@ -127,7 +210,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
         if (mListener != null && aMapLocation != null) {
             if (aMapLocation != null && aMapLocation.errorCode == 0) {
                 mListener!!.onLocationChanged(aMapLocation)// 显示系统小蓝点
-                binding.ivLocation.setVisibility(View.VISIBLE)
+                binding.ivLocation.visibility = View.VISIBLE
                 cityCode = aMapLocation.cityCode
                 /*if(firstList){
                     firstList = false;
@@ -138,7 +221,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
                 }*/
             } else {
                 val errText = "定位失败," + aMapLocation.errorCode + ": " + aMapLocation.errorInfo
-                LogUtils.d(errText)
+                Log.e("AmapErr", errText)
             }
         }
     }
@@ -146,7 +229,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
     override fun onCameraChange(cameraPosition: CameraPosition) {}
 
     override fun onCameraChangeFinish(cameraPosition: CameraPosition) {
-      //  searchBound = PoiSearch.SearchBound(LatLonPoint(LoanApplication.lat, LoanApplication.lon), 1000, true)
+        searchBound = PoiSearch.SearchBound(LatLonPoint(LoanApplication.lat, LoanApplication.lon), 1000, true);
         page = 0
         pageCount = 20
         poiSearch(page)
@@ -191,15 +274,11 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
         poiSearch.bound = searchBound
         poiSearch.setOnPoiSearchListener(object : PoiSearch.OnPoiSearchListener {
             override fun onPoiSearched(poiResult: PoiResult, i: Int) {
-//                getSwipeLayout().setRefreshing(false)
-//                getSwipeLayout().setLoadingMore(false)
-//                pageCount = poiResult.pageCount
-//                convert(poiResult.pois)
-//                if (page < pageCount - 1) {
-//                    getSwipeLayout().setLoadMoreEnabled(true)
-//                } else {
-//                    getSwipeLayout().setLoadMoreEnabled(false)
-//                }
+                getSwipeLayout()?.isRefreshing = false
+                getSwipeLayout()?.isLoadingMore = false
+                                pageCount = poiResult.pageCount
+                                convert(poiResult.getPois())
+                getSwipeLayout()?.isLoadMoreEnabled = page < pageCount - 1
             }
 
             override fun onPoiItemSearched(poiItem: PoiItem, i: Int) {}
@@ -208,19 +287,13 @@ class GdMapCtrl(var binding: ActivityGdMapBinding,val activity: Activity) :  Loc
     }
 
     private fun convert(list: List<PoiItem>?) {
-        if (list == null || list.size == 0) {
+        if (list == null || list.isEmpty()) {
             return
         }
-//        if (page == 0) {
-//            searchList.clear()
-//            viewModel.get().items.clear()
-//        }
-//        searchList.addAll(list)
-//        for (i in list.indices) {
-//            val item = PioSearchItemVM()
-//            item.setTitle(list[i].title)
-//            item.setSnippet(list[i].snippet)
-//            viewModel.get().items.add(item)
-//        }
+        if (page == 0) {
+            searchList.clear()
+        }
+        searchList.addAll(list)
+        binding.swipeTarget.adapter?.notifyDataSetChanged()
     }
 }

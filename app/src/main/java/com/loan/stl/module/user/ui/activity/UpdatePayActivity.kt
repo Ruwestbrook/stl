@@ -34,16 +34,18 @@ class UpdatePayActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
-      var binding= DataBindingUtil.setContentView<ActivityUpdatePayBinding>(this,R.layout.activity_update_pay)
+      val binding= DataBindingUtil.setContentView<ActivityUpdatePayBinding>(this,R.layout.activity_update_pay)
         binding.ctrl= PayControl(binding,payType,this)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun finishPage(view: View){
         finish()
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun forget(view: View){
-        ARouter.getInstance().build(RouterUrl.FORGET_LOGIN_PASSWORD).navigation(this,
+        ARouter.getInstance().build(RouterUrl.FORGET_PASSWORD).navigation(this,
             RequestResultCode.REQ_FORGOT_PAY)
     }
 
@@ -52,10 +54,7 @@ class UpdatePayActivity : BaseActivity() {
         if (Activity.RESULT_OK == resultCode) {
             ctrl?.setPayType(Constant.NUMBER_3)
         }
-        if (requestCode == RequestResultCode.REQ_FORGOT_PAY &&
-            resultCode == RequestResultCode.RES_FORGOT_PAY) {
-            ctrl?.setPayType(Constant.NUMBER_3)
-        }
+
     }
 
 }

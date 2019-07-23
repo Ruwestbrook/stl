@@ -59,5 +59,17 @@ open class BaseActivity: AppCompatActivity(){
 
     }
 
+    fun setPageTitle(title:Int,show:Boolean){
+        val textView=findViewById<TextView>(R.id.title)
+        textView.text=resources.getString(title)
+        val imageView=findViewById<TextView>(R.id.back_button)
+        val rightExplain=findViewById<TextView>(R.id.right_explain)
+        imageView.setOnClickListener {
+            finish()
+        }
+        rightExplain.visibility=if(show) View.VISIBLE else View.GONE
+
+    }
+
 }
 

@@ -16,4 +16,6 @@
     <dimen name="text_size_120px">80sp</dimen>
     <dimen name="text_size_180px">95sp</dimen>
     <dimen name="button_radius">5dp</dimen>
+    <dimen name="term_radius">11dp</dimen>
+    <dimen name="dividing_line">1dp</dimen>
 </resources>

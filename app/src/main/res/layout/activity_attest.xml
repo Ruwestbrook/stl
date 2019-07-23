@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    tools:context=".module.home.ui.activity.AttestActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@id/include_layout"
        style="@style/con_center_horizontal"
         android:layout_height="156dp"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,MissingConstraints" />
 
 
     <TextView
@@ -42,7 +43,7 @@
         android:textColor="@color/text_color_8a"
         android:text="@string/footer_text"
         android:layout_height="wrap_content"
-        tools:ignore="SmallSp" />
+        tools:ignore="MissingConstraints,SmallSp" />
 
 
     <TextView
@@ -57,7 +58,8 @@
         app:layout_constraintBottom_toTopOf="@id/tip_two"
         android:layout_marginBottom="10dp"
         android:text="@string/tips_habit"
-        style="@style/finish_tips_style" />
+        style="@style/finish_tips_style"
+        tools:ignore="MissingConstraints" />
     <TextView
         android:layout_width="match_parent"
         app:layout_constraintBottom_toTopOf="@id/tip_one"
@@ -74,6 +76,7 @@
         app:layout_constraintBottom_toTopOf="@id/tips"
         android:layout_marginBottom="18dp"
         android:text="@string/back_text"
+        android:onClick="finishPage"
         android:textColor="@color/white"
         style="@style/button_style"
         android:layout_marginLeft="15dp"

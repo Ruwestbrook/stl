@@ -12,7 +12,7 @@ import com.loan.stl.databinding.FragmentRepayBinding
 /**
 author: russell
 time: 2019-07-11:12:01
-describe：还款界面
+describe：暂无还款计划的界面
  */
 class RepayFragment :BaseFragment() {
     private lateinit var fragmentRepayBinding: FragmentRepayBinding

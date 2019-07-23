@@ -64,7 +64,7 @@ class LoginControl {
         val sub= LoginSub()
         sub.id=loginVM.phone
         sub.pwd="qwer123456"
-        //"userId":4074,"token":"0caed270a77343a2a6a7ffcbbbd14a9f",
+        //"userId":4074,"token":"781f846321eb406689359126fd716f25",
         // "refreshToken":"c6be32c9564c4a339565a367ea4d3c56"
         val loginCall=HttpClient.getService(UserService::class.java).doLogin(sub)
         loginCall.enqueue(object :ResponseCallback<HttpResult<OauthTokenMo>>(){
@@ -73,6 +73,7 @@ class LoginControl {
                 response: Response<HttpResult<OauthTokenMo>>?
             ) {
                 val oauthTokenMo=response?.body()!!.data
+                LogUtils.d("oauthTokenMo.token="+oauthTokenMo.token)
                 if(oauthTokenMo!=null){
                    UserLogic.login(Util.getActivity(view),oauthTokenMo)
                 }

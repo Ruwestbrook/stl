@@ -48,6 +48,8 @@ class CreditControl(var activity:CreditPersonActivity) {
         Manifest.permission.ACCESS_COARSE_LOCATION,
         Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS,
         Manifest.permission.BLUETOOTH_ADMIN,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.BLUETOOTH)
     var creditPersonVM=CreditPersonVM()
     init {

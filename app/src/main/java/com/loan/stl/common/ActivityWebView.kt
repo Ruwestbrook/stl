@@ -59,7 +59,7 @@ class ActivityWebView:BaseActivity() {
         ARouter.getInstance().inject(this)
         setContentView(R.layout.activity_web_view)
         webview=findViewById(R.id.webView)
-        setPageTitle(webTitle)
+        setPageTitle(webTitle,false)
 //        val urlTemp = SharedInfo.getInstance().getValue(BundleKeys.URL, "") as String
 //        if (!TextUtils.isEmpty(urlTemp)) {
 //            webUrl = urlTemp

@@ -16,6 +16,26 @@ describe：
  */
 class ForgetLoginVM :BaseObservable() {
 
+
+
+    /** 获取验证码按钮是否可用  */
+    @get:Bindable
+    var first: Boolean = false
+        set(value) {
+            field=value
+            notifyPropertyChanged(BR.first)
+        }
+
+    /** 获取验证码按钮是否可用  */
+    @get:Bindable
+    var second: Boolean = false
+        set(value) {
+            field=value
+            notifyPropertyChanged(BR.second)
+        }
+
+
+
     /* 忘记修改面第一步 */
     /** 手机号  */
     @get:Bindable
@@ -65,7 +85,6 @@ class ForgetLoginVM :BaseObservable() {
     var pwd: String? = null
         set(value) {
             field=value
-            this.pwd = pwd
             checkInputUpdate()
             notifyPropertyChanged(BR.pwd)
         }
@@ -76,7 +95,6 @@ class ForgetLoginVM :BaseObservable() {
     var confirmPwd: String? = null
         set(value) {
             field=value
-            this.confirmPwd = confirmPwd
             checkInputUpdate()
             notifyPropertyChanged(BR.confirmPwd)
         }
@@ -95,21 +113,21 @@ class ForgetLoginVM :BaseObservable() {
     /**
      * TimeButton是否可用
      */
-    fun codeEnableCheck() {
+    private fun codeEnableCheck() {
         codeEnable = RegularUtil.isPhoneLength(phone)
     }
 
     /**
      * 输入校验
      */
-    fun checkInput() {
+    private fun checkInput() {
         enable = !TextUtil.isEmpty(phone) && InputCheck.checkCode(code)
     }
 
     /**
      * 修改密码输入校验
      */
-    fun checkInputUpdate() {
+    private fun checkInputUpdate() {
         updateEnable =
             !(TextUtil.isEmpty(pwd) || TextUtil.isEmpty(confirmPwd) || pwd!!.length < 6 || confirmPwd!!.length < 6 || confirmPwd!!.length > 16 || pwd!!.length > 16)
     }

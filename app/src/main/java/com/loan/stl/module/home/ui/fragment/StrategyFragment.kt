@@ -26,6 +26,7 @@ class StrategyFragment:BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentStrategyBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_strategy,container,false)
+
         return fragmentStrategyBinding.root
     }
 }

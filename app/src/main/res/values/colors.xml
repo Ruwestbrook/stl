@@ -25,6 +25,8 @@
     <color name="text_color_a3">#A3A2A7</color>
     <color name="text_color_26">#262627</color>
     <color name="text_color_83">#838B98</color>
+    <color name="text_color_93">#939393</color>
+    <color name="text_color_f3">#F3F3F3</color>
 
 
 
@@ -38,5 +40,7 @@
 
     <!-- 地图颜色 -->
     <color name="amap_transparent_theme_color">#664ab6fa</color>
+    <!-- 控件背景色 -->
+    <color name="widget_backgroundColor">#ffffff</color>
 
 </resources>

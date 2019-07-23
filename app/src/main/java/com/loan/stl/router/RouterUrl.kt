@@ -37,9 +37,9 @@ class RouterUrl{
         const val USER_SETTING_PAGE="/activity/setting"
 
             /* 修改交易密码 */
-            const val UPDATE_PASSWORD="/activity/forget/password"
+            const val UPDATE_PASSWORD="/activity/pay/password"
                 /* 忘记交易密码 */
-                const val FORGET_PASSWORD="/activity/forget/password"
+                const val FORGET_PASSWORD="/activity/pay/forget"
             /*意见反馈*/
             const val FEEDBACK_PAGE="/activity/feedback"
 

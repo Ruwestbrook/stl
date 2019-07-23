@@ -1,380 +1,487 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <include layout="@layout/title"/>
+    <data>
+        <variable
+            name="ctrl"
+            type="com.loan.stl.module.home.viewControl.LoanControl" />
+    </data>
 
     <LinearLayout
-        android:visibility="gone"
-        style="@style/normalLeftRightMargin"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="66dp">
-        <TextView
-            android:text="@string/money_symbol"
-            android:textSize="23sp"
-            android:layout_gravity="center"
-            android:textColor="@color/text_color_55"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_height="wrap_content" />
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-        <EditText
+        <include layout="@layout/title" />
+        <ScrollView
+            android:scrollbars="none"
             android:layout_width="match_parent"
-            android:background="@null"
-            android:textSize="35sp"
-            android:layout_gravity="center"
-            android:text="@string/normal_money"
-            android:textStyle="bold"
-            android:textColor="@color/app_base_color"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_height="wrap_content">
+
+
+
+                <LinearLayout
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="66dp">
+
+                    <TextView
+                        android:text="@string/money_symbol"
+                        android:textSize="23sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/text_color_55"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:enabled="@{!ctrl.loanVM.fixed}"
+                        android:layout_width="match_parent"
+                        android:background="@null"
+                        android:textSize="23sp"
+                        android:hint="@{@string/max_can_loan+ctrl.loanVM.maxQuota+@string/yuan}"
+                        android:text="@={ctrl.loanVM.money}"
+
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/app_base_color"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:textColor="@color/text_color_c5"
+                    android:text="@{ctrl.loanVM.fixed?@string/fixed_amount:@string/not_fixed_amount}"
+                    android:textSize="12sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:paddingRight="15dp"
+                    android:visibility="gone"
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="8dp"
+                    android:layout_height="158dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/credit_report"
+                        style="@style/text_34_17"
+                        android:id="@+id/text_one"
+                        android:layout_marginTop="31dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        app:layout_constraintTop_toBottomOf="@id/text_one"
+                        android:layout_marginTop="9dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/report_explain"
+                        android:textColor="@color/app_base_color"
+                        android:textSize="12sp"
+                        android:maxWidth="245dp"
+                        android:maxLines="2"
+                        android:id="@+id/text_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_two"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/user_credit_report"
+                        style="@style/text_34_17"
+                        android:id="@+id/text_three"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/text_three"
+                        android:layout_marginTop="9dp"
+                        android:text="@string/user_report_explain"
+                        android:maxWidth="260dp"
+                        android:maxLines="2"
+                        android:textColor="@color/app_base_color"
+                        android:textSize="12sp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/test_less_money"
+                        style="@style/text_34_17"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/icon_go_choose"
+                        android:drawablePadding="9dp"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="31dp"
+
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_height="17dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{ctrl::use}"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/how_use"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@{ctrl.loanVM.use}"
+                        android:hint="@string/choose_text"
+                        style="@style/loan_text"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/icon_go_choose"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="12dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{ctrl::chooseTerm}"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/how_long"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:hint="@string/choose_text"
+                        style="@style/loan_text"
+                        android:text="@{ctrl.loanVM.term}"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+                    <ImageView
+                        android:id="@+id/list_rotation"
+                        android:layout_width="16dp"
+                        android:src="@drawable/icon_go_choose"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="12dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <RelativeLayout
+                        style="@style/normalLeftRightMargin"
+                        android:id="@+id/list_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!--<androidx.recyclerview.widget.RecyclerView-->
+                            <!--android:paddingTop="10dp"-->
+                            <!--android:paddingBottom="10dp"-->
+                            <!--android:id="@+id/term_list"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"/>-->
+
+                    </RelativeLayout>
+
+
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{ctrl::returnType}"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/how_repay"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:hint="@string/choose_text"
+                        android:text="@{ctrl.loanVM.returnType}"
+                        style="@style/loan_text"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+                    <ImageView
+                        app:visibility="@{ctrl.loanVM.chooseType}"
+                        android:layout_width="16dp"
+                        android:src="@drawable/icon_go_choose"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="12dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/repay_plan"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:layout_width="52dp"
+                        android:layout_marginRight="6dp"
+                        app:layout_constraintRight_toLeftOf="@id/repay_plan"
+                        style="@style/con_center_vertical"
+                        android:layout_height="16dp"
+                        android:background="@color/app_base_color"
+                        android:text="@string/first_repay"
+                        app:visibility="@{ctrl.loanVM.plan}"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:layout_marginEnd="6dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/repay_plan"
+                        android:layout_width="wrap_content"
+                        android:text="@{ctrl.loanVM.planText}"
+                        style="@style/loan_text"
+                        android:hint="@string/no_plan"
+                        android:layout_marginRight="20dp"
+                        android:textColor="@color/app_base_color"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        app:visibility="@{ctrl.loanVM.plan}"
+                        android:layout_width="16dp"
+                        android:src="@drawable/icon_go_choose"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="12dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{ctrl::bankCard}"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/get_money_bank"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:visibility="gone"
+                        style="@style/con_center_vertical"
+                        android:src="@drawable/test_icon_bank"
+                        android:layout_marginRight="5dp"
+                        app:layout_constraintRight_toLeftOf="@id/bank_name"
+                        android:layout_height="20dp"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/bank_name"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/choose_text"
+                        android:text="@{ctrl.loanVM.card}"
+                        style="@style/loan_text"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/icon_go_choose"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="12dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    style="@style/normalLeftRightMargin"
+                    android:background="@color/bg_dividing_line"
+                    android:layout_height="1dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    style="@style/normalLeftRightMargin"
+                    android:layout_height="45dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/lender"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        style="@style/loan_text"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@{ctrl.loanVM.company}"
+                        style="@style/loan_text"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/fixed_tips"
+                    android:textColor="@color/text_color_c5"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/button_style"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/next_step"
+                    android:layout_height="40dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_color_c5"
+                        android:text="@string/loan_next_text"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/app_base_color"
+                        android:textSize="12sp"
+                        android:onClick="@{ctrl::protocol}"
+                        android:text="@string/loan_protocol_lists"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="37dp"
+                    style="@style/footer_style" />
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-    
-    <TextView
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:textColor="@color/text_color_c5"
-        android:text="@string/fixed_amount"
-        android:textSize="12sp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:paddingRight="15dp"
-        android:visibility="gone"
-        android:paddingLeft="15dp"
-        android:paddingBottom="8dp"
-        android:layout_height="158dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/credit_report"
-            style="@style/text_34_17"
-            android:id="@+id/text_one"
-            android:layout_marginTop="31dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content" />
-
-
-        <TextView
-            app:layout_constraintTop_toBottomOf="@id/text_one"
-            android:layout_marginTop="9dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/report_explain"
-            android:textColor="@color/app_base_color"
-            android:textSize="12sp"
-            android:maxWidth="245dp"
-            android:maxLines="2"
-            android:id="@+id/text_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_two"
-            android:layout_marginTop="10dp"
-            android:text="@string/user_credit_report"
-            style="@style/text_34_17"
-            android:id="@+id/text_three"
-            android:layout_height="wrap_content" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_three"
-            android:layout_marginTop="9dp"
-            android:text="@string/user_report_explain"
-            android:maxWidth="260dp"
-            android:maxLines="2"
-            android:textColor="@color/app_base_color"
-            android:textSize="12sp"
-            android:layout_height="wrap_content" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="@string/test_less_money"
-                style="@style/text_34_17"
-                android:gravity="center"
-                android:drawableRight="@drawable/icon_go_choose"
-                android:drawablePadding="9dp"
-                android:includeFontPadding="false"
-                android:layout_marginTop="31dp"
-
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_height="17dp"/>
-
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/how_use"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/choose_text"
-            style="@style/loan_text"
-            android:drawableRight="@drawable/icon_go_choose"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/how_long"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/choose_text"
-            style="@style/loan_text"
-            android:drawableRight="@drawable/icon_go_choose"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/how_repay"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/choose_text"
-            style="@style/loan_text"
-            android:drawableRight="@drawable/icon_go_choose"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/repay_plan"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-
-        <TextView
-            android:layout_width="52dp"
-            android:layout_marginRight="6dp"
-            app:layout_constraintRight_toLeftOf="@id/repay_plan"
-            style="@style/con_center_vertical"
-            android:layout_height="16dp"
-            android:background="@color/app_base_color"
-            android:text="@string/first_repay"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:layout_marginEnd="6dp"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/repay_plan"
-            android:layout_width="wrap_content"
-            android:text="@string/test_repay_info"
-            style="@style/loan_text"
-            android:textColor="@color/app_base_color"
-            android:drawableRight="@drawable/icon_go_choose"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/get_money_bank"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:layout_width="20dp"
-            style="@style/con_center_vertical"
-            android:src="@drawable/test_icon_bank"
-            android:layout_marginRight="5dp"
-            app:layout_constraintRight_toLeftOf="@id/bank_name"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:id="@+id/bank_name"
-            android:layout_width="wrap_content"
-            android:text="@string/test_user_bank_card"
-            style="@style/loan_text"
-            android:drawableRight="@drawable/icon_go_choose"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <View
-        android:layout_width="match_parent"
-        style="@style/normalLeftRightMargin"
-        android:background="@color/bg_dividing_line"
-        android:layout_height="1dp"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        style="@style/normalLeftRightMargin"
-        android:layout_height="54dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/lender"
-            app:layout_constraintLeft_toLeftOf="parent"
-            style="@style/loan_text"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="@string/test_company_name"
-            style="@style/loan_text"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="@string/fixed_tips"
-        android:textColor="@color/text_color_c5"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        style="@style/button_style"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/next_step"
-        android:layout_height="40dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/text_color_c5"
-            android:text="@string/loan_next_text"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/app_base_color"
-            android:textSize="12sp"
-            android:text="@string/loan_protocol_lists"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_marginTop="37dp"
-        style="@style/footer_style"
-        />
-
-</LinearLayout>
+</layout>

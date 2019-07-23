@@ -8,6 +8,7 @@ package com.loan.stl.network;
  * Description:
  */
 public class RequestParams {
+
     public static final String UUID               = "uuid";
     public static final String ID                 = "id";
     public static final String PWD                = "pwd";
@@ -15,7 +16,8 @@ public class RequestParams {
     public static final String REFRESH_TOKEN      = "refresh_token";
     public static final String INVITER            = "inviter";
     public static final String PHONE              = "phone";
-    public static final String CARD_NO              = "cardNo";
+    public static final String SMS_CODE           = "smsCode";
+    public static final String USER_ID              = "userId";
     public static final String PATH_WAY           = "pathWay";
     public static final String PASSWORD           = "password";
     public static final String DYNAMIC_VALID_CODE = "dynamicValidCode";
@@ -28,15 +30,13 @@ public class RequestParams {
     public static final String CONTENT            = "content";
     public static final String MOBILE             = "mobile";
     public static final String EMAIL              = "email";
-    public static final String IDNO               = "idno";
+    public static final String IDNO               = "idNo";
     public static final String REALNAME           = "realName";
     public static final String BANK_CODE          = "bankCode";
     public static final String CARD_ID            = "cardId";
     public static final String IMG_URL            = "imgUrl";
     public static final String SECTION_CODE       = "sectionCode";
     public static final String TYPE               = "type";
-    public static final String USER_ID               = "userId";
-    public static final String BANK               = "bank";
     public static final String SIGN               = "signMsg";
     public static final String FEEDBACK           = "feedback";
     /** 订单号 */
@@ -46,12 +46,14 @@ public class RequestParams {
     /** 借款期限 */
     public static final String TIME_LIMIT         = "timeLimit";
 
-    public static final String USERID             = "userId";
+    /** 666 sms**/
+    public static final String SIX_KEY              ="appkey";
+    public static final String SIX_SECRET           ="appsecret";
 
-    public static final String REPAY_CODE               = "code";
+    public static final String SIX_MOBILE           ="mobile";
+    public static final String SIX_TOKEN            ="STL-AccessToken";
 
-    public static final String CHANNEL            = "equipmentId";
-
+    public static final String SIX_CODE             ="code";
 
 
 }

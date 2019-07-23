@@ -1,9 +1,17 @@
 package com.loan.stl.module.user.viewControl
 
 import android.view.View
+import com.loan.stl.module.user.dataModel.submit.IdeaSub
 import com.loan.stl.module.user.viewModel.FeedBackVM
+import com.loan.stl.network.HttpClient
+import com.loan.stl.network.ResponseCallback
+import com.loan.stl.network.api.MineService
+import com.loan.stl.network.entity.HttpResult
 import com.loan.stl.utils.LogUtils
 import com.loan.stl.utils.ToastUtils
+import com.loan.stl.utils.Util
+import retrofit2.Call
+import retrofit2.Response
 
 /**
 author: russell
@@ -24,11 +32,18 @@ class FeedBackControl {
         }
 
         if(containsEmoji(feedBackVM?.idea)){
-            ToastUtils.toast("含有表情符号")
+            ToastUtils.toast("请删除表情符号后再提交")
             return
         }
         LogUtils.d(feedBackVM?.idea)
-        ToastUtils.toast("提交表单")
+
+        val call = HttpClient.getService(MineService::class.java).opinion(IdeaSub(feedBackVM?.idea))
+        call.enqueue(object : ResponseCallback<HttpResult<Any>>() {
+           override fun onSuccess(call: Call<HttpResult<Any>>, response: Response<HttpResult<Any>>) {
+                ToastUtils.toast(response.body()!!.msg)
+                Util.getActivity(view).finish()
+            }
+        })
 
     }
 
@@ -36,7 +51,7 @@ class FeedBackControl {
     /**
      * 检测是否有emoji表情
      */
-    fun containsEmoji(source: String?): Boolean {
+    private fun containsEmoji(source: String?): Boolean {
         if(source==null)
             return  false
         val len = source.length

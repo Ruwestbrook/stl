@@ -46,7 +46,7 @@
 
     <!--借款界面文字样式-->
     <style name="loan_text" parent="con_center_vertical">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/text_color_34</item>
     </style>
 

@@ -2,15 +2,11 @@ ext {
 
     isDebug = true
     android = [
-
-            applicationId       : "com.shentouli.stl",
-
             // 签名store
-            storeFile : "../stl.jks",
-            storePassword       : "shentouli",
-            keyAlias : "shentouli",
-            keyPassword         : "shentouli",
-            mapGDKey : "21cc398bbb0ce128493749e918cc7c02",
+            storeFile : "../key.jks",
+            storePassword       : "stl12138",
+            keyAlias : "stl12138",
+            keyPassword         : "stl12138",
     ]
 
 }

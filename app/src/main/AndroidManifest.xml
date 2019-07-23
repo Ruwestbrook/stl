@@ -63,26 +63,34 @@
         <activity android:name=".module.user.ui.activity.UpdatePayActivity" />
         <activity android:name=".module.user.ui.activity.SettingActivity">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".module.user.ui.activity.LoginActivity" />
+        <activity android:name=".module.user.ui.activity.LoginActivity" >
+
+
+        </activity>
+
         <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
         <activity android:name=".module.user.ui.activity.FeedbackActivity" />
         <activity android:name=".common.ActivityWebView" />
         <activity android:name=".module.mine.ui.activity.BankCardActivity">
 
         </activity>
+        <!--忘记交易密码-->
         <activity android:name=".module.user.ui.activity.ForgetPayActivity" />
-        <activity android:name=".module.user.ui.activity.ForgetLoginActivity" />
+        <!--忘记登录密码-->
+        <activity android:name=".module.user.ui.activity.ForgetLoginActivity" >
+
+        </activity>
         <activity android:name=".module.mine.ui.activity.BindCardActivity" />
         <activity android:name=".module.mine.ui.activity.CreditPersonActivity" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".module.mine.ui.activity.ContactActivity" >
@@ -93,13 +101,17 @@
 
 
         </activity>
+        <activity android:name=".module.home.ui.activity.LoanActivity" >
+
+
+        </activity>
+        <activity android:name=".module.home.ui.activity.AttestActivity" />
 
 
         <!--高德地图key-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="21cc398bbb0ce128493749e918cc7c02	"/>
-        <service android:name="com.amap.api.location.APSService" />
+            android:value="fc67093d434c100cc4b63c5391e69c45"/>
     </application>
 
 </manifest>

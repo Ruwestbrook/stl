@@ -20,7 +20,7 @@ import retrofit2.Response
 /**
 author: russell
 time: 2019-07-15:11:13
-describe：
+describe：修改登录密码控制器
  */
 class UpdateLoginControl {
     var loginVM=UpdateLoginVM()
@@ -42,6 +42,7 @@ class UpdateLoginControl {
         })
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun submit(view: View){
         if(!loginVM.enable){
            ToastUtils.toast("请输入密码！")
@@ -58,8 +59,11 @@ class UpdateLoginControl {
             ToastUtils.toast(R.string.settings_pwd_desc)
             return
         }
+        val updatePwdSub=UpdatePwdSub()
+        updatePwdSub.newPwd=loginVM.newPass
+        updatePwdSub.oldPwd=loginVM.oldPass
         val call = HttpClient.getService(MineService::class.java).
-            updatePwd(UpdatePwdSub(loginVM.oldPass, loginVM.oldPass))
+            updatePwd(updatePwdSub)
         NetworkUtil.showCutscenes(call)
         call.enqueue(object : ResponseCallback<HttpResult<Any>>() {
           override  fun onSuccess(call: Call<HttpResult<Any>>, response: Response<HttpResult<Any>>) {

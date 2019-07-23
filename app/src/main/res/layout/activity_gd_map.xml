@@ -136,6 +136,7 @@
 
                 <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
                     android:layout_width="match_parent"
+                    android:id="@+id/layouts"
                     android:layout_height="match_parent">
 
                     <androidx.recyclerview.widget.RecyclerView

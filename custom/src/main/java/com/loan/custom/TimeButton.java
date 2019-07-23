@@ -64,6 +64,7 @@ public class TimeButton extends TextView{
         textInit = this.getText().toString();
         setGravity(Gravity.CENTER);
         setTextSize(14);
+        init();
         //        setOnClickListener(this);
     }
 

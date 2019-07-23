@@ -1,7 +1,6 @@
 package com.loan.stl.module.user.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.databinding.DataBindingUtil
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.loan.stl.R
@@ -22,7 +21,7 @@ class FeedbackActivity :BaseActivity() {
         super.onCreate(savedInstanceState)
         val activityFeedbackBinding=DataBindingUtil.
             setContentView<ActivityFeedbackBinding>(this,R.layout.activity_feedback)
-        setPageTitle("意见反馈")
+        setPageTitle("意见反馈",false)
         activityFeedbackBinding.ctrl= FeedBackControl()
     }
 
