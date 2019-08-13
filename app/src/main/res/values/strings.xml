@@ -282,6 +282,7 @@
 
     <string name="linker_permission_error">权限获取失败，请允许通讯录权限！</string>
 
+    <string name="location_permission_error">权限获取失败，请允许定位权限！</string>
 
 
 

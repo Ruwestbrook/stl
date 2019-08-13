@@ -8,5 +8,34 @@ ext {
             keyAlias : "stl12138",
             keyPassword         : "stl12138",
     ]
+    data = [
+
+            //app配置
+            appKey:"",
+            appSecret:"",
+
+            //短信配置
+            messageKey:"",
+            messageSecret:"",
+            messageURL:"",
+
+
+            //服务器地址
+            beatURL:"",
+            releaseURL:"",
+
+            //有盾配置
+            YouDunKEY:"",
+
+
+            //魔蝎KEY
+
+            beatMoxieKEY:"",
+            releaseMoxieKEY:"",
+
+
+
+
+    ]
 
 }

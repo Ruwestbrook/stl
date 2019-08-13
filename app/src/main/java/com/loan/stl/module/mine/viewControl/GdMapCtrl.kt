@@ -1,17 +1,13 @@
 package com.loan.stl.module.mine.viewControl
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
@@ -21,7 +17,6 @@ import com.amap.api.maps2d.AMap
 import com.amap.api.maps2d.AMapOptions
 import com.amap.api.maps2d.CameraUpdateFactory
 import com.amap.api.maps2d.LocationSource
-import com.amap.api.maps2d.MapView
 import com.amap.api.maps2d.model.BitmapDescriptorFactory
 import com.amap.api.maps2d.model.CameraPosition
 import com.amap.api.maps2d.model.LatLng
@@ -42,8 +37,7 @@ import com.loan.stl.common.binding.PositionClick
 import com.loan.stl.databinding.ActivityGdMapBinding
 import com.loan.stl.module.mine.ui.activity.GdMapActivity
 import com.loan.stl.module.mine.ui.fragment.GdSearchFrag
-import com.loan.stl.module.mine.viewModel.PioSearchItemVM
-import com.loan.stl.utils.Util
+import com.loan.stl.utils.LogUtils
 
 import java.util.ArrayList
 
@@ -55,8 +49,8 @@ import java.util.ArrayList
  *
  * Description: 高德地图（
  */
-class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) : CommonControl(), LocationSource, AMapLocationListener,
-    AMap.OnCameraChangeListener {
+class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) : CommonControl(),
+    LocationSource, AMapLocationListener, AMap.OnCameraChangeListener {
     private var aMap: AMap? = null
     private var mListener: LocationSource.OnLocationChangedListener? = null
     private var mlocationClient: AMapLocationClient? = null
@@ -69,12 +63,11 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
     private var gdSearchFrag: GdSearchFrag?=null
     private var transaction : FragmentTransaction?=null
     private val searchList = ArrayList<PoiItem>()
-    private val firstList = true
 
     init {
         aMap=binding.map.map
         setSwipeLayout(binding.layouts)
-        if (aMap == null) {
+        if (aMap != null) {
             aMap = binding.map.map
             setUpMap()
             aMap!!.setOnCameraChangeListener(this)
@@ -111,30 +104,31 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
     }
 
     private fun setTitleVisibility() {
+        transaction = activity.supportFragmentManager.beginTransaction()
+
         if (binding.tvSearch.visibility == View.VISIBLE) {
             binding.tvSearch.visibility = View.GONE
             binding.tvSearchBtn.visibility = View.VISIBLE
             binding.etSearch.visibility = View.VISIBLE
             binding.container.visibility = View.VISIBLE
             binding.etSearch.requestFocus()
-                        gdSearchFrag = GdSearchFrag.getInstance(cityCode);
-                        transaction = activity.supportFragmentManager.beginTransaction()
-                        transaction?.add(binding.container.id, gdSearchFrag!!)
-                        transaction?.addToBackStack(null)
-                        transaction?.commitAllowingStateLoss()
+            gdSearchFrag = GdSearchFrag.getInstance(cityCode)
+            transaction?.add(binding.container.id, gdSearchFrag!!)
+            transaction?.addToBackStack(null)
+
         } else {
             binding.tvSearch.visibility = View.VISIBLE
             binding.tvSearchBtn.visibility = View.GONE
             binding.etSearch.visibility = View.GONE
             binding.container.visibility = View.GONE
+            transaction?.remove(gdSearchFrag!!)
 
-            transaction = activity.supportFragmentManager.beginTransaction()
-            gdSearchFrag?.let { transaction?.remove(it) }
-            transaction?.commitAllowingStateLoss()
         }
+        transaction?.commitAllowingStateLoss()
     }
 
     /** 返回事件  */
+    @Suppress("UNUSED_PARAMETER")
     fun onBackPressed(view: View) {
         if (binding.tvSearch.visibility == View.VISIBLE) {
             activity.finish()
@@ -143,18 +137,20 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
             binding.tvSearchBtn.visibility = View.GONE
             binding.etSearch.visibility = View.GONE
             binding.container.visibility = View.GONE
-            //            transaction = ((FragmentActivity) activity).getSupportFragmentManager().beginTransaction();
-            //            transaction.remove(gdSearchFrag);
-            //            transaction.commitAllowingStateLoss();
+            transaction = activity.supportFragmentManager.beginTransaction()
+            transaction?.remove(gdSearchFrag!!)
+            transaction?.commitAllowingStateLoss()
         }
     }
 
     /** 搜索按钮  */
+    @Suppress("UNUSED_PARAMETER")
     fun toSearch(view: View) {
         setTitleVisibility()
     }
 
     /** 搜索  */
+    @Suppress("unused", "UNUSED_PARAMETER")
     fun search(view: View) {
         page = 1
         poiSearch(page)
@@ -201,7 +197,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
 
             override fun afterTextChanged(editable: Editable) {
 
-              //  gdSearchFrag?.viewCtrl.poiSearch(0, editable.toString());
+                gdSearchFrag?.viewCtrl?.poiSearch(0, editable.toString())
             }
         })
     }
@@ -229,6 +225,8 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
     override fun onCameraChange(cameraPosition: CameraPosition) {}
 
     override fun onCameraChangeFinish(cameraPosition: CameraPosition) {
+        LogUtils.d("lat="+LoanApplication.lat)
+        LogUtils.d("lon="+LoanApplication.lon)
         searchBound = PoiSearch.SearchBound(LatLonPoint(LoanApplication.lat, LoanApplication.lon), 1000, true);
         page = 0
         pageCount = 20
@@ -251,6 +249,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
             // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
             // 在定位结束后，在合适的生命周期调用onDestroy()方法
             // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
+
             mlocationClient!!.startLocation()
         }
     }
@@ -277,7 +276,7 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
                 getSwipeLayout()?.isRefreshing = false
                 getSwipeLayout()?.isLoadingMore = false
                                 pageCount = poiResult.pageCount
-                                convert(poiResult.getPois())
+                                convert(poiResult.pois)
                 getSwipeLayout()?.isLoadMoreEnabled = page < pageCount - 1
             }
 
@@ -290,9 +289,11 @@ class GdMapCtrl(var binding: ActivityGdMapBinding, val activity: GdMapActivity) 
         if (list == null || list.isEmpty()) {
             return
         }
+
         if (page == 0) {
             searchList.clear()
         }
+
         searchList.addAll(list)
         binding.swipeTarget.adapter?.notifyDataSetChanged()
     }

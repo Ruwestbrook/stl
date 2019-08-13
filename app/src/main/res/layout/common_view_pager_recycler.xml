@@ -13,6 +13,7 @@
     <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:listener="@{viewCtrl.listener}"
         >
 
         <androidx.recyclerview.widget.RecyclerView

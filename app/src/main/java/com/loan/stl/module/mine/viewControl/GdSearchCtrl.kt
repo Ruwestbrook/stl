@@ -1,15 +1,22 @@
 package com.loan.stl.module.mine.viewControl
 
 import android.app.Activity
+import android.content.Intent
 import android.text.TextUtils
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.amap.api.services.core.PoiItem
 import com.amap.api.services.poisearch.PoiResult
 import com.amap.api.services.poisearch.PoiSearch
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+import com.loan.stl.BR
+import com.loan.stl.R
+import com.loan.stl.common.BundleKeys
 import com.loan.stl.common.CommonControl
 import com.loan.stl.common.SwipeListener
-import com.loan.stl.module.mine.viewModel.PioSearchItemVM
+import com.loan.stl.common.binding.BaseRecyclerViewAdapter
+import com.loan.stl.common.binding.PositionClick
+import com.loan.stl.databinding.CommonViewPagerRecyclerBinding
 import com.loan.stl.utils.Util
 import java.util.ArrayList
 
@@ -18,13 +25,13 @@ author: russell
 time: 2019-07-16:16:49
 describe：
  */
-class GdSearchCtrl(val view: View, private val cityCode: String): CommonControl() {
+class GdSearchCtrl(val binding:CommonViewPagerRecyclerBinding, private val cityCode: String): CommonControl() {
 
     private var page = 0
     private var pageCount = 20
     private val pageSize = 15
     private var keyword = ""
-    private var activity: Activity = Util.getActivity(view)
+    private var activity: Activity = Util.getActivity(binding.root)
     private val searchList = ArrayList<PoiItem>()
 
     init {
@@ -44,6 +51,19 @@ class GdSearchCtrl(val view: View, private val cityCode: String): CommonControl(
                 page++
                 poiSearch(page, keyword)
             }
+        })
+
+        binding.swipeTarget.layoutManager= LinearLayoutManager(activity)
+        val adapter= BaseRecyclerViewAdapter(searchList, BR.item, R.layout.item_poi_layout)
+        binding.swipeTarget.adapter=adapter
+        adapter.setPositionClick(object : PositionClick {
+            override fun click(view: View, position: Int) {
+                val  intent= Intent()
+                intent.putExtra(BundleKeys.DATA, searchList[position])
+                activity.setResult(Activity.RESULT_OK, intent)
+                activity.finish()
+            }
+
         })
     }
 
@@ -65,7 +85,7 @@ class GdSearchCtrl(val view: View, private val cityCode: String): CommonControl(
             override fun onPoiSearched(poiResult: PoiResult, i: Int) {
                 getSwipeLayout()?.isLoadingMore = false
                 pageCount = poiResult.pageCount
-                convert(page, poiResult.pois)
+                convert(poiResult.pois)
                 getSwipeLayout()?.isLoadMoreEnabled = page < pageCount - 1
             }
 
@@ -74,20 +94,15 @@ class GdSearchCtrl(val view: View, private val cityCode: String): CommonControl(
         poiSearch.searchPOIAsyn()
     }
 
-    private fun convert(pageNum: Int, list: List<PoiItem>?) {
+    private fun convert(list: List<PoiItem>?) {
         if (list == null || list.isEmpty()) {
             return
         }
-        if (pageNum == 0) {
+        if (page == 0) {
             searchList.clear()
-          //  viewModel.get().items.clear()
         }
         searchList.addAll(list)
-        for (i in list.indices) {
-            val item = PioSearchItemVM()
-            item.title=list[i].title
-            item.snippet=list[i].snippet
-           // viewModel.get().items.add(item)
-        }
+        binding.swipeTarget.adapter?.notifyDataSetChanged()
+
     }
 }

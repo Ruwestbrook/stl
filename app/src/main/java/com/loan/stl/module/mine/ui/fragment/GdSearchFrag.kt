@@ -34,7 +34,7 @@ class GdSearchFrag:BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<CommonViewPagerRecyclerBinding>(inflater,R.layout.common_view_pager_recycler,container,false)
-        viewCtrl = GdSearchCtrl(binding.root, cityCode)
+        viewCtrl = GdSearchCtrl(binding, cityCode)
         binding.viewCtrl = viewCtrl
         return binding.root
     }

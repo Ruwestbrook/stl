@@ -2,9 +2,13 @@ package com.loan.stl.common
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -69,6 +73,12 @@ open class BaseActivity: AppCompatActivity(){
         }
         rightExplain.visibility=if(show) View.VISIBLE else View.GONE
 
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //设置activity只能竖屏
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
 }

@@ -21,7 +21,7 @@ android {
     // compileOptions.incremental = false
 
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    buildToolsVersion "29.0.1"
     defaultConfig {
 
 
@@ -46,7 +46,7 @@ android {
         ndk {
             // 设置支持的 SO 库构架
 
-            abiFilters 'armeabi-v7a'//,'armeabi',  'arm64-v8a',"arm64-v8a", "x86","x86 _64"//, 'x86_64', 'mips', 'mips64'
+            abiFilters 'armeabi-v7a','x86'//,'armeabi',  'arm64-v8a', "x86","x86 _64"//, 'x86_64', 'mips', 'mips64'
         }
     }
 

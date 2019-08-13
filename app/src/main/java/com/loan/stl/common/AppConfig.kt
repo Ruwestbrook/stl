@@ -34,45 +34,8 @@ class AppConfig {
 
          /** 引导页数量  */
          const val GUIDE_COUNT = 3
-         /**
-          * 首页下标
-          * 1 展现认证数
-          * 2 展现借款数
-          * 3 天数按钮展示
-          * 4 闪现
-          * 5 速融
-          * 6 基隆   2019/07/02 russell 修改页面
-          */
-         const val HOME_INDEX_NUM = 6
-         /**
-          * 认证中心下标
-          * 1列表
-          * 2九宫格
-          * 3选题 必填区分
-          */
-         const val CREDIT_CENTER_INDEX_NUM = 1
-         /**
-          * 人像识别方案
-          * 1商汤
-          * 2face++
-          * 3小视
-          * 4智趣
-          * 5友顿
-          */
-         const val IDENTIFICATION_TYPE = 4
-         /**
-          * 紧急联系人个数
-          */
-         const val LINKER_NUMBER = 2
 
-         /**
-          * 运营商认证方式
-          * 1 web 大圣
-          * 2 聚力信
-          * 3 公信宝
-          * 4 魔蝎   2019/07/02 russell 修改为魔蝎
-          */
-         const val OPERATOR_TYPE = 4
+
      }
     
    

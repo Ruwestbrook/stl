@@ -55,7 +55,7 @@
         <ImageView
             android:layout_width="90dp"
             android:id="@+id/img"
-            android:src="@drawable/icon_login_logo"
+            android:src="@mipmap/ic_launcher"
             app:layout_constraintTop_toTopOf="@id/title"
             android:layout_marginTop="55dp"
             style="@style/con_center_horizontal"

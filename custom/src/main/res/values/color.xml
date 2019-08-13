@@ -17,6 +17,7 @@
     <color name="back_gray">#F2F2F2</color>
 
     <color name="line_grey" tools:ignore="MissingDefaultResource">#DDDDDD</color>
-
+    <!-- button-disable -->
+    <color name="disable_bg">#CCCCCC</color>
 
 </resources>

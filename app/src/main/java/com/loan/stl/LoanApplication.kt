@@ -15,6 +15,7 @@ import com.loan.stl.common.ActivityManage
 import com.loan.stl.common.AppConfig
 import com.loan.stl.common.BaseParams
 import com.loan.stl.module.user.dataModel.receive.OauthTokenMo
+import com.loan.stl.utils.LogUtils
 import com.loan.stl.utils.SPreferences.SharedInfo
 
 /**
@@ -23,6 +24,21 @@ time: 2019-07-12:10:38
 describe：
  */
 class LoanApplication :Application(), AMapLocationListener {
+
+
+    override fun onCreate() {
+        super.onCreate()
+
+        context=this.applicationContext
+
+
+        closeAndroidPDialog()
+        registerActivity()
+        basicInit()
+        registerGaoDeLocation()
+    }
+
+
     override fun onLocationChanged(amapLocation: AMapLocation?) {
         if (amapLocation != null) {
             if (amapLocation.errorCode == 0) {
@@ -33,6 +49,7 @@ class LoanApplication :Application(), AMapLocationListener {
                 locCity = amapLocation.city
                 lon = amapLocation.longitude
                 lat = amapLocation.latitude
+                LogUtils.d("定位成功")
 
                 if (locCity != null && "" != locCity) {
                     if (!openGps)
@@ -51,6 +68,9 @@ class LoanApplication :Application(), AMapLocationListener {
             } else {
                 if (onPosChanged != null)
                     onPosChanged!!.changed(amapLocation)
+
+                LogUtils.d("amapLocation.getErrorCode()" + amapLocation.errorCode)
+                LogUtils.d("amapLocation.getErrorInfo()" + amapLocation.errorInfo)
             }
         }
     }
@@ -124,9 +144,7 @@ class LoanApplication :Application(), AMapLocationListener {
             onPosChanged = callback
         }
 
-        interface OnPosChanged {
-            fun changed(location: AMapLocation)
-        }
+
 
         /**
          * 定位成功后回调函数
@@ -145,15 +163,20 @@ class LoanApplication :Application(), AMapLocationListener {
         }
 
     }
-    override fun onCreate() {
-        super.onCreate()
-
-        context=this.applicationContext
 
 
-        closeAndroidPDialog()
-        registerActivity()
-        basicInit()
+    private fun registerGaoDeLocation() {
+        if (mLocationClient == null) {
+            mLocationClient = AMapLocationClient(this)
+            //设置定位监听
+            mLocationClient?.setLocationListener(this)
+            // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
+            // 注意设置合适的定位时间的间隔（最小间隔支持为2000ms），并且在合适时间调用stopLocation()方法来取消定位请求
+            // 在定位结束后，在合适的生命周期调用onDestroy()方法
+            // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
+            setLocOption(10000)
+            mLocationClient?.startLocation()
+        }
     }
 
     private fun basicInit() {
@@ -170,7 +193,7 @@ class LoanApplication :Application(), AMapLocationListener {
 
     private var count = 0
     private fun registerActivity() {
-        registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+        registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
                 ActivityManage.push(activity)
             }
@@ -226,5 +249,8 @@ class LoanApplication :Application(), AMapLocationListener {
 
     }
 
+    interface OnPosChanged {
+        fun changed(location: AMapLocation)
+    }
 
 }

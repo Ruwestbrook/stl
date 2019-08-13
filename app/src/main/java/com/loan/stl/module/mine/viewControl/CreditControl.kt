@@ -8,6 +8,7 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.launcher.ARouter
+import com.amap.api.location.AMapLocation
 import com.authreal.api.AuthBuilder
 import com.authreal.api.OnResultCallListener
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder
@@ -52,6 +53,8 @@ class CreditControl(var activity:CreditPersonActivity) {
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.BLUETOOTH)
     var creditPersonVM=CreditPersonVM()
+    var address:String?=null
+    var coordinate:String?=null
     init {
            reqData()
 
@@ -273,6 +276,7 @@ class CreditControl(var activity:CreditPersonActivity) {
     /*
     打开高德地图定位
      */
+    @Suppress("UNUSED_PARAMETER")
     fun openMap(view: View){
 
         if(!checkPermission()){
@@ -283,6 +287,14 @@ class CreditControl(var activity:CreditPersonActivity) {
     }
 
     fun openMap(){
+
+        LoanApplication.openGps(object : LoanApplication.OnPosChanged {
+            override fun changed(location: AMapLocation) {
+               address=location.address
+               coordinate=location.longitude.toString() + "," + location.latitude
+            }
+        }, true)
+
         ARouter.getInstance().build(RouterUrl.ACTIVITY_MAP).
             navigation(activity,RequestResultCode.REQ_MAP_CODE)
 

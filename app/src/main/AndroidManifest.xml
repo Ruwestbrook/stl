@@ -63,11 +63,7 @@
         <activity android:name=".module.user.ui.activity.UpdatePayActivity" />
         <activity android:name=".module.user.ui.activity.SettingActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".module.user.ui.activity.LoginActivity" >
@@ -75,7 +71,6 @@
 
         </activity>
 
-        <activity android:name=".module.user.ui.activity.SetPayPwdActivity" />
         <activity android:name=".module.user.ui.activity.FeedbackActivity" />
         <activity android:name=".common.ActivityWebView" />
         <activity android:name=".module.mine.ui.activity.BankCardActivity">
@@ -90,7 +85,11 @@
         <activity android:name=".module.mine.ui.activity.BindCardActivity" />
         <activity android:name=".module.mine.ui.activity.CreditPersonActivity" >
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".module.mine.ui.activity.ContactActivity" >
@@ -112,6 +111,8 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="fc67093d434c100cc4b63c5391e69c45"/>
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

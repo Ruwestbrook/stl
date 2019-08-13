@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.loan.stl.module.mine.viewModel.PioSearchItemVM"/>
+            type="com.amap.api.services.core.PoiItem"/>
         
     </data>
 

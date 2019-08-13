@@ -74,8 +74,7 @@
             android:layout_height="wrap_content" />
 
 
-        <!--
-            android:afterTextChanged="@{viewCtrl.input}"-->
+        <!--android:afterTextChanged="@{viewCtrl.input}"-->
         <com.loan.custom.PasswordInputView
             android:id="@+id/pwd"
             style="@style/normalLeftRightMargin"
